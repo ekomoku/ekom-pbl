@@ -1,5 +1,6 @@
+## Project 1
 
-### Provisioning Ubuntu Server on AWS
+### Step1: Provisioning Ubuntu Server on AWS
 
 ![provisioning ubuntu server](https://user-images.githubusercontent.com/66005935/210137117-c4c3ce07-7836-47d9-a871-cfda5a6d69c2.png)
 

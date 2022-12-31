@@ -76,9 +76,10 @@ $ sudo mysql_secure_installation
 
 
 ### Logon to MySQL
+
 ~~~
-$ sudo mysql -p
-~~
+sudo mysql -p
+~~~
 
 
 ![Screenshot from 2022-12-31 16-37-56](https://user-images.githubusercontent.com/66005935/210148573-998d0c96-1aba-4ea9-9f89-dfe18455d965.png)

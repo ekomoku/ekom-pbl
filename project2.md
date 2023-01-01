@@ -142,16 +142,58 @@ mysql> CREATE DATABASE `netrill`;
 ~~~
 
 
-Create a database user and grant him full privileges on the database you have just created, using mysql_native_password as default authentication, set the password as 'Wordpass.1'
+Create a database user(admin) and grant him full privileges on the database you have just created, using mysql_native_password as default authentication, set the password as 'Wordpass.1'
+Also, grant permission tothe 'netrill' database
+
+~~~
+CREATE USER 'admin'@'%' IDENTIFIED WITH mysql_native_password BY 'Wordpass.1'
+GRANT ALL ON example_database.* TO 'example_user'@'%';
+~~~
+
+To show the new user can log into the netrill database
+
+~~~
+mysql -u example_user -p
+~~~
+
+
+
+![Screenshot from 2023-01-01 19-37-32](https://user-images.githubusercontent.com/66005935/210181417-61dceb26-339b-4bc7-8a8e-c6581ced190a.png)
+
+
+Create a test table named 'todo_list'
 
 
 ~~~
-CREATE USER 'example_user'@'%' IDENTIFIED WITH mysql_native_password BY 'Wordpass'
+CREATE TABLE netrill.todo_list ( item_id INT AUTO_INCREMENT,content VARCHAR(255),
+PRIMARY KEY(item_id)
+);
+~~~
+
+
+Insert rows and content, repeating the command below to add more contents
+
+
+~~~
+mysql> INSERT INTO example_database.todo_list (content) VALUES ("My first important item");
 ~~~
 
 
 
 
+![Screenshot from 2023-01-01 20-11-48](https://user-images.githubusercontent.com/66005935/210183518-3162817c-086d-427b-8727-bff60aaf3e87.png)
+
+
+
+Create a PHP script that will connect to MySQL and query for your content.
+
+~~~
+nano /var/www/projectLEMP/todo_list.php
+~~~
+
+
+
+![Screenshot from 2023-01-01 22-45-43](https://user-images.githubusercontent.com/66005935/210185514-ef6f104f-8743-496e-913f-83219aea2b5e.png)
 
 
 
@@ -161,7 +203,7 @@ CREATE USER 'example_user'@'%' IDENTIFIED WITH mysql_native_password BY 'Wordpas
 
 
 
-
+![Screenshot from 2023-01-01 22-44-35](https://user-images.githubusercontent.com/66005935/210185525-6c3cdd0b-55fd-4079-b570-092fc525b7e9.png)
 
 
 

@@ -133,11 +133,43 @@ vim todo.js
 ### Mongodb Database
 
 
+We'll use mLab for mongodb as a service (DBaaS). Create an account and create a database.
+
+Copy the link under 'Connect > connect your application' . Create a .env file in Todo folder and paste the link ( chnage the <password> to the actual password used)
+
+Next, update the index.js to reflect the use of .env so that Node.js can connect to the database. Paste the config as shown in the image
+
+~~~
+vim index.js
+~~~
 
 
 
+![Screenshot from 2023-01-02 20-58-23](https://user-images.githubusercontent.com/66005935/210273912-b0127178-f757-49dc-acdd-d98743122831.png)
 
 
+Start the server and confirm the backend is connected
+ 
 
+~~~
+node index.js
+~~~
 
+  
+  
+![Screenshot from 2023-01-02 21-10-16](https://user-images.githubusercontent.com/66005935/210274822-b34701d1-52cb-4f38-baea-e6183f3594e0.png)
 
+  
+
+### Testing Backend Code without Frontend using RESTful API
+ 
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  

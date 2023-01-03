@@ -164,7 +164,13 @@ node index.js
 ### Testing Backend Code without Frontend using RESTful API
  
   
-  
+ 
+On POSTMAN, create a POST request to the API http://54.175.233.216:5000/api/todos. This request sends a new task to our To-Do list so the application could store it in the database.
+
+Note: make sure your set header key Content-Type as application/json
+ 
+
+
   
   
   

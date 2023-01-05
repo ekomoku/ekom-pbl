@@ -169,7 +169,82 @@ On POSTMAN, create a POST request to the API http://54.175.233.216:5000/api/todo
 
 Note: make sure your set header key Content-Type as application/json
  
+POST Request
+ 
 
+ ![Screenshot from 2023-01-05 22-06-08](https://user-images.githubusercontent.com/66005935/210879966-a369246e-d149-4cd6-8996-426ba012855d.png)
+
+ 
+GET Request
+ 
+
+ 
+![Screenshot from 2023-01-05 22-09-31](https://user-images.githubusercontent.com/66005935/210880587-55069807-d37d-4efa-99ef-19feca2dd34b.png)
+
+
+ 
+### Frontend Creation
+ 
+Run the following command to create react app. It will create folder called client, where all the reat codes will be 
+
+
+~~~
+ npx create-react-app client
+~~~
+ 
+
+Install concurrently and nodemon using the following codes
+
+ 
+~~~
+npm install concurrently --save-dev
+npm install nodemon --save-dev
+~~~
+ 
+ 
+ 
+In Todo folder open the package.json file. Change the highlighted part of the below screenshot and replace with the code below.
+
+ 
+~~~
+"scripts": {
+"start": "node index.js",
+"start-watch": "nodemon index.js",
+"dev": "concurrently \"npm run start-watch\" \"cd client && npm start\""
+},
+~~~
+ 
+ 
+![Screenshot from 2023-01-05 22-41-57](https://user-images.githubusercontent.com/66005935/210885478-1f016d86-1eb7-45f3-b4e0-b71444868919.png)
+
+ 
+#### Configure Proxy in package.json
+
+ 
+ Change directory to client and open package.json
+ 
+ 
+~~~
+cd client
+vi package.json
+~~~
+ 
+ 
+Add the key value pair in the package.json file "proxy": "http://localhost:5000".
+The whole purpose of adding the proxy configuration in above is to make it possible to access the application directly from the browser by simply calling the server url like http://localhost:5000 rather than always including the entire path like http://localhost:5000/api/todos
+ 
+#### Run the app with the foloowing command, make sure you're in the Todo folder
+ 
+
+~~~
+npm run dev
+~~~
+ 
+ 
+
+ ![Screenshot from 2023-01-05 22-52-56](https://user-images.githubusercontent.com/66005935/210887254-20a6e77d-dcb9-446f-93fb-e824d87f2d67.png)
+
+ 
 
   
   

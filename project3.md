@@ -185,7 +185,7 @@ GET Request
  
 ### Frontend Creation
  
-Run the following command to create react app. It will create folder called client, where all the reat codes will be 
+In Todo directory, Run the following command to create react app. It will create folder called client, where all the reat codes will be 
 
 
 ~~~
@@ -193,7 +193,7 @@ Run the following command to create react app. It will create folder called clie
 ~~~
  
 
-Install concurrently and nodemon using the following codes
+Install concurrently and nodemon in Todo directory using the following codes
 
  
 ~~~
@@ -230,7 +230,7 @@ vi package.json
 ~~~
  
  
-Add the key value pair in the package.json file "proxy": "http://localhost:5000".
+On the first line of the package.json file, Add the key value pair in the package.json file "proxy": "http://localhost:5000".
 The whole purpose of adding the proxy configuration in above is to make it possible to access the application directly from the browser by simply calling the server url like http://localhost:5000 rather than always including the entire path like http://localhost:5000/api/todos
  
 #### Run the app with the foloowing command, make sure you're in the Todo folder

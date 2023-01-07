@@ -355,7 +355,7 @@ export default Input
  
  
  
-To make use of Axios, which is a Promise based HTTP client for the browser and node.js, you need to cd into your client from your terminal and run yarn add axios or npm install axios.
+#### To make use of Axios, which is a Promise based HTTP client for the browser and node.js, you need to cd into your client from your terminal and run yarn add axios or npm install axios.
 
 Move to the src folder
 
@@ -386,7 +386,7 @@ vi ListTodo.js
 ~~~
  
  
-in the ListTodo.js copy and paste the following code
+#### in the ListTodo.js copy and paste the following code
 
  
 ~~~
@@ -420,7 +420,7 @@ export default ListTodo
  
  
  
- T####hen in your Todo.js file you write the following code
+#### Then in your Todo.js file you write the following code
 
 
  

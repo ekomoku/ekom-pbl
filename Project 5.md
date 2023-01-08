@@ -70,13 +70,14 @@ sudo mysql -u remote_user -h 172.31.88.40 -p
 
 
 
- file:///home/ekom/Pictures/Screenshots/Screenshot%20from%202023-01-08%2017-03-28.png
+ ![file:///home/ekom/Pictures/Screenshots/Screenshot%20from%202023-01-08%2017-03-28.png]
 
 
 
 
 
 
+![Screenshot from 2023-01-07 19-59-27](https://user-images.githubusercontent.com/66005935/211166396-6a6a3b82-bfa1-4850-96e0-1ee0c13343cb.png)
 
 
 

@@ -64,7 +64,7 @@ sudo gdisk /dev/xvdf
 > Now,  your changes has been configured succesfuly, exit out of the gdisk console and do the same for the remaining disks.
 
 
-
+5. Use lsblk utility to view the newly configured partition on each of the 3 disks.
 
 
 

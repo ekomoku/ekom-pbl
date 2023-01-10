@@ -3,7 +3,7 @@
 
 ### Step 1: Prepare a Web Server
 
-1. Launch an EC2 instance that will serve as "Web Server". Create 3 volumes in the same AZ as your Web Server EC2, each of 10 GiB
+#### 1. Launch an EC2 instance that will serve as "Web Server". Create 3 volumes in the same AZ as your Web Server EC2, each of 10 GiB
 
 
 
@@ -11,16 +11,16 @@
 
 
 
-2. Attach all three volumes one by one to your Web Server EC2 instance
+#### 2. Attach all three volumes one by one to your Web Server EC2 instance
 
 
 
-3.  Use lsblk command to inspect what block devices are attached to the server. Notice names of your newly created devices. All devices in Linux reside in /dev/ directory. Inspect it with ls /dev/ and make sure you see all 3 newly created block devices there – their names will likely be xvdf, xvdh, xvdg.
+#### 3.  Use lsblk command to inspect what block devices are attached to the server. Notice names of your newly created devices. All devices in Linux reside in /dev/ directory. Inspect it with ls /dev/ and make sure you see all 3 newly created block devices there – their names will likely be xvdf, xvdh, xvdg.
 
 
 ![Screenshot from 2023-01-10 19-30-27](https://user-images.githubusercontent.com/66005935/211633660-bdeaa86b-8c2b-4537-8027-78a5d27e849d.png)
 
-4. Use df -h command to see all mounts and free space on your server
+#### 4. Use df -h command to see all mounts and free space on your server
 
 
 5. Use gdisk utility to create a single partition on each of the 3 disks
@@ -64,7 +64,37 @@ sudo gdisk /dev/xvdf
 > Now,  your changes has been configured succesfuly, exit out of the gdisk console and do the same for the remaining disks.
 
 
-5. Use lsblk utility to view the newly configured partition on each of the 3 disks.
+#### 5. Use lsblk utility to view the newly configured partition on each of the 3 disks.
+
+
+
+![Screenshot from 2023-01-10 19-56-14](https://user-images.githubusercontent.com/66005935/211637815-a6b62082-8c60-484a-ba6c-e450616bf9d9.png)
+
+
+
+#### 6. Install lvm2 package using sudo yum install lvm2. Run sudo lvmdiskscan command to check for available partitions.
+
+
+Note: Previously, in Ubuntu we used apt command to install packages, in RedHat/CentOS a different package manager is used, so we shall use yum command instead.
+
+
+#### 7. Use pvcreate utility to mark each of 3 disks as physical volumes (PVs) to be used by LVM
+
+
+
+~~~
+sudo pvcreate /dev/xvdf1
+sudo pvcreate /dev/xvdg1
+sudo pvcreate /dev/xvdh1
+~~~
+
+
+#### 8. Verify that your Physical volume has been created successfully by running sudo pvs
+
+
+
+
+
 
 
 

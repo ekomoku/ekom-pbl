@@ -92,6 +92,176 @@ sudo pvcreate /dev/xvdh1
 #### 8. Verify that your Physical volume has been created successfully by running sudo pvs
 
 
+![Screenshot from 2023-01-10 20-09-20](https://user-images.githubusercontent.com/66005935/211640200-58421150-dbc5-4303-af86-e60a45c98baa.png)
+
+
+#### 9. Use vgcreate utility to add all 3 PVs to a volume group (VG). Name the VG webdata-vg
+
+
+
+~~~
+sudo vgcreate webdata-vg /dev/xvdh1 /dev/xvdg1 /dev/xvdf1
+sudo vgs
+~~~
+
+
+
+#### 10. Use lvcreate utility to create 2 logical volumes. apps-lv (Use half of the PV size), and logs-lv Use the remaining space of the PV size. NOTE: apps-lv will be used to store data for the Website while, logs-lv will be used to store data for logs.
+
+
+
+~~~
+sudo lvcreate -n apps-lv -L 14G webdata-vg
+sudo lvcreate -n logs-lv -L 14G webdata-vg
+~~~
+
+
+#### 11. Verify that your Logical Volume has been created successfully by running sudo lvs
+
+
+
+
+![Screenshot from 2023-01-10 20-20-19](https://user-images.githubusercontent.com/66005935/211642270-747eb2db-1947-4e77-b288-fbf221bed1f1.png)
+
+
+#### 12. Verify the entire setup
+
+
+~~~
+sudo vgdisplay -v #view complete setup - VG, PV, and LV
+sudo lsblk 
+~~~
+
+#### 13. Use mkfs.ext4 to format the logical volumes with ext4 filesystem
+
+
+~~~
+sudo mkfs -t ext4 /dev/webdata-vg/apps-lv
+sudo mkfs -t ext4 /dev/webdata-vg/logs-lv
+~~~
+
+
+
+#### 14. Create /var/www/html directory to store website files
+
+
+
+~~~
+sudo mkdir -p /var/www/html
+~~~
+
+
+#### 15. Create /home/recovery/logs to store backup of log data
+
+
+
+~~~
+sudo mkdir -p /home/recovery/logs
+~~~
+
+
+#### 16. Mount /var/www/html on apps-lv logical volume
+
+
+~~~
+sudo mount /dev/webdata-vg/apps-lv /var/www/html/
+~~~
+
+
+#### 17. Use rsync utility to backup all the files in the log directory /var/log into /home/recovery/logs (This is required before mounting the file system)
+
+
+~~~
+sudo rsync -av /var/log/. /home/recovery/logs/
+~~~~
+
+
+
+#### 18. Mount /var/log on logs-lv logical volume. (Note that all the existing data on /var/log will be deleted. That is why step 15 above is very
+important)
+
+
+~~~
+sudo mount /dev/webdata-vg/logs-lv /var/log
+~~~
+
+
+
+#### 19. Restore log files back into /var/log directory
+
+
+~~~
+sudo rsync -av /home/recovery/logs/. /var/log
+~~~
+
+
+#### 20. Update /etc/fstab file so that the mount configuration will persist after restart of the server.
+
+The UUID of the device will be used to update the /etc/fstab file;
+
+
+
+
+~~~
+sudo blkid
+~~~
+
+
+Copy the UUID for the webdata-app --lv and webdata-logs--lv
+
+
+
+
+![Screenshot from 2023-01-10 20-44-35](https://user-images.githubusercontent.com/66005935/211647563-aa95c17f-1842-4659-8f65-0767ff62469e.png)
+
+
+
+Run the command
+
+
+~~~
+sudo vi /etc/fstab
+~~~
+
+
+
+## UPDATE THE `/ETC/FSTAB` FILE
+
+#### Update /etc/fstab in this format using your own UUID and rememeber to remove the leading and ending quotes.
+
+
+UUUID = 68fb04ff-0e53-479f-ade7-ee0fd0aba01c
+UUUID = 27d15c21-82eb-418f-9b0f-f92166bf99c3
+
+
+#### 1. Test the configuration and reload the daemon
+
+
+
+~~~
+ sudo mount -a
+ sudo systemctl daemon-reload
+ ~~~
+ 
+ 
+
+
+2. Verify your setup by running df -h, output must look like this:
+
+
+
+
+![Screenshot from 2023-01-10 21-11-05](https://user-images.githubusercontent.com/66005935/211652117-f3406961-833e-4ffe-b4fe-2e7cdae78da5.png)
+
+
+
+## Step 3 — Install WordPress on your Web Server EC2
+
+Launch a second RedHat EC2 instance that will have a role – ‘DB Server’
+Repeat the same steps as for the Web Server, but instead of apps-lv create db-lv and mount it to /db directory instead of /var/www/html/
+
+
+
 
 
 

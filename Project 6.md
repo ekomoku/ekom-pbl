@@ -451,8 +451,6 @@ sudo mv /etc/httpd/conf.d/welcome.conf /etc/httpd/conf.d/welcome.conf_backup
 
 
 
-![Screenshot from 2023-01-17 14-23-08](https://user-images.githubusercontent.com/66005935/212911399-2a80a103-422b-4b3d-bbe6-dbcefa7fbec3.png)
-
 
 
 
@@ -463,6 +461,8 @@ sudo mv /etc/httpd/conf.d/welcome.conf /etc/httpd/conf.d/welcome.conf_backup
 
 
 
+
+![Screenshot from 2023-01-17 14-23-08](https://user-images.githubusercontent.com/66005935/212911399-2a80a103-422b-4b3d-bbe6-dbcefa7fbec3.png)
 
 
 

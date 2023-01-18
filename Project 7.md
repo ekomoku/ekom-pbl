@@ -326,18 +326,73 @@ git clone <paste_the_link_to_darey_github_account_here>
 ~~~
 
 
-Run ls -l to see the tooling app folder
-cd into the tooling folder
+1. Run ls -l to see the tooling app folder
+2. cd into the tooling folder
 
 
 9. Deploy the tooling website’s code to the Webserver. Ensure that the html folder from the repository is deployed to /var/www/html
 
+In the toolong folder, run the command below
+
+
+~~~
+sudo cp -R html/. /var/www/html
+~~~
+
+
+##### Note 1: 
+Do not forget to open TCP port 80 on the Web Server.
+
+##### Note 2: 
+If you encounter 403 Error – check permissions to your /var/www/html folder and also disable SELinux sudo setenforce 0
+To make this change permanent – open following config file sudo vi /etc/sysconfig/selinux and set SELINUX=disabledthen restrt httpd.
+
+from the tooling follder, run 
+
+
+~~~
+cd ..
+sudo setenforce 0
+sudo vi /etc/sysconfig/selinux
+~~~
+
+change SELINUX=enforcing ..... to .... SELINUX=disabled
+
+Then start apache, if its not running
+
+
+~~~
+sudo systemctl start httpd
+sudo systemctl enable http
+~~~
 
 
 
+
+10. Update the website’s configuration to connect to the database (in /var/www/html/functions.php file). Apply tooling-db.sql script to your database using this command mysql -h <databse-private-ip> -u <db-username> -p <db-pasword> < tooling-db.sql
+
+
+~~~
+sudo vi /var/www/html/functions.php
+~~~
+check under
+//connect to database ..... and edit as 
+$db=mysqli.connect(<'db-private-ip-address'>, 'webaccess', 'password', 'toolong');
+
+       
+##### Note: webaccess is the db user, 'password' is the pssword that was set  
     
     
+#### To apply tooling-db.sql run the following command
     
+
+~~~
+mysql -h <databse-private-ip> -u <db-username> -p <db-pasword> < tooling-db.sql
+~~~~
+
+
+    
+  
     
     
     

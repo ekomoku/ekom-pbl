@@ -397,7 +397,7 @@ mysql -h <databse-private-ip> -u <db-username> -p <db-pasword> < tooling-db.sql
 ~~~
 sudo vi /etc/mysql/mysql.conf.d/mysqld.cnf
 ~~~
-                                                                               `                                                                         
+                                                          
       
 change the bind addresses from 127.0.0.1 to 0.0.0.0
                                                                                

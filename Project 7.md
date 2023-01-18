@@ -384,16 +384,30 @@ $db=mysqli.connect(<'db-private-ip-address'>, 'webaccess', 'password', 'toolong'
     
     
 #### To apply tooling-db.sql run the following command
-    
-
+1. First, cd into the tooling folder   
+2. Also ensure mysql is install, if not install it with ~~~sudo yum install mysql~~~
 ~~~
 mysql -h <databse-private-ip> -u <db-username> -p <db-pasword> < tooling-db.sql
 ~~~~
 
-
-    
+=======================================================================================                                                                               
+### Note: Before continuing, go back to the DB server and edit the conf.d file as follows
+                                                                               
+                                                                               
+~~~
+sudo vi /etc/mysql/mysql.conf.d/mysqld.cnf
+~~~
+                                                                               `                                                                         
+      
+change the bind addresses from 127.0.0.1 to 0.0.0.0
+                                                                               
+ Restart mysql
+                                                                               
+ ~~~
+ sudo systemctl restart mysql
+ ~~~                                                                              
   
-    
+ =======================================================================================   
     
     
     

@@ -73,6 +73,7 @@ On the diagram below you can see a common pattern where several stateless Web Se
     ~~~
     
     
+    
     #### Format the disks as xfs instead of ext4
     
     

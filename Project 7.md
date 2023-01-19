@@ -62,8 +62,8 @@ On the diagram below you can see a common pattern where several stateless Web Se
     ~~~
     
     
-#### 3.
-Create 3 Logical volumes lv,name them as: lv-opt, lv-apps, and lv-logs
+#### 3.Create 3 Logical volumes lv,name them as: lv-opt, lv-apps, and lv-logs
+
 
 
     ~~~
@@ -72,7 +72,9 @@ Create 3 Logical volumes lv,name them as: lv-opt, lv-apps, and lv-logs
     sudo lvcreate -n lv-logs -L 9G webdata-vg
     ~~~
     
+    
     #### Format the disks as xfs instead of ext4
+    
     
     
     ~~~
@@ -82,10 +84,12 @@ Create 3 Logical volumes lv,name them as: lv-opt, lv-apps, and lv-logs
     ~~~
     
     
+    
     #### Create mount points on /mnt directory for the logical volumes as follow:
     Mount lv-apps on /mnt/apps – To be used by webservers
     Mount lv-logs on /mnt/logs – To be used by webserver logs
     Mount lv-opt on /mnt/opt – To be used by Jenkins server in Project 8
+    
     
     
     ~~~
@@ -95,7 +99,9 @@ Create 3 Logical volumes lv,name them as: lv-opt, lv-apps, and lv-logs
     ~~~
     
     
+    
     #### Mount the logical volumes on the newly created mount points
+    
     
     
     ~~~
@@ -103,6 +109,7 @@ Create 3 Logical volumes lv,name them as: lv-opt, lv-apps, and lv-logs
     sudo mount /dev/webdata-vg/lv-logs /mnt/logs
     sudo mount /dev/webdata-vg/lv-opt /mnt/opt
     ~~~
+    
     
     
     

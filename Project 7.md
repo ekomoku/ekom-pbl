@@ -137,7 +137,7 @@ Make sure we set up permission that will allow our Web servers to read, write an
 
 ~~~
 sudo chown -R nobody: /mnt/apps
-sud~o chown -R nobody: /mnt/logs
+sudo chown -R nobody: /mnt/logs
 sudo chown -R nobody: /mnt/opt
 
 sudo chmod -R 777 /mnt/apps
@@ -177,7 +177,7 @@ rpcinfo -p | grep nfs
 ~~~
 
 
-##### Important note: In order for NFS server to be accessible from your client, you must also open following ports on NFS: TCP 111, UDP 111, UDP 2049. The source IP is the subnet CIDR of the webservers
+##### Important note: In order for NFS server to be accessible from your client, you must also open following ports on NFS: TCP 111, UDP 111, UDP 2049, NFS 2049. The source IP is the subnet CIDR of the webservers
 
 
 
@@ -419,11 +419,10 @@ change the bind addresses from 127.0.0.1 to 0.0.0.0
     
     
     
+   
     
     
-    
-    
-    
+![Screenshot from 2023-01-21 15-11-46](https://user-images.githubusercontent.com/66005935/213870754-5a08de29-1af2-4693-b713-fcc9de58bc58.png)
 
 
 

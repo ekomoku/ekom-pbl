@@ -1,5 +1,5 @@
 
-## LOAD BALANCER SOLUTION WITH APACHE
+## PROJECT 8: LOAD BALANCER SOLUTION WITH APACHE
 
 
 ![Screenshot from 2023-01-22 11-03-23](https://user-images.githubusercontent.com/66005935/213910248-4b6cb8df-301e-450c-b199-fc2edfe91fac.png)
@@ -11,3 +11,14 @@ Task
 Deploy and configure an Apache Load Balancer for Tooling Website solution on a separate Ubuntu EC2 intance. Make sure that users can be served by Web servers through the Load Balancer.
 
 To simplify, I'll implement this solution with 2 Web Servers, the approach will be the same for 3 and more Web Servers.
+
+
+#### Prerequisites
+Make sure that you have following servers installed and configured within Project-7:
+
+1. Two RHEL8 Web Servers
+2. One MySQL DB Server (based on Ubuntu 20.04)
+3. One RHEL8 NFS server
+
+
+

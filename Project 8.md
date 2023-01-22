@@ -92,8 +92,41 @@ sudo systemctl restart apache2
 
 
 
+![Screenshot from 2023-01-22 21-44-07](https://user-images.githubusercontent.com/66005935/213939466-ad0a8ff2-779e-4e41-98e1-4e3f2abf740e.png)
 
 
+'bytraffic' balancing method will distribute incoming load between your Web Servers according to current traffic load. We can control in which proportion the traffic must be distributed by loadfactor parameter.
+
+
+4. Verify that our configuration works – try to access your LB’s public IP address or Public DNS name from your browser:
+
+
+~~~
+http://<Load-Balancer-Public-IP-Address-or-Public-DNS-Name>/index.php
+~~~
+
+
+
+Note: If in the Project-7 you mounted /var/log/httpd/ from your Web Servers to the NFS server – unmount them and make sure that each Web Server has its own log directory.
+
+Open ssh/Putty consoles for all Web Servers and run following command:
+
+
+~~~
+sudo tail -f /var/log/httpd/access_log
+~~~
+
+
+#### Try to refresh your browser page
+
+several times and make sure that both servers receive HTTP GET requests from your LB – new records must appear in each server’s log file. The number of requests to each server will be approximately the same since we set loadfactor to the same value for both servers – it means that traffic will be disctributed evenly between them.
+
+
+~~~
+http://<Load-Balancer-Public-IP-Address-or-Public-DNS-Name>/index.php
+~~~
+
+If you have configured everything correctly – your users will not even notice that their requests are served by more than one server.
 
 
 

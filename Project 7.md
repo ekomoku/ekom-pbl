@@ -414,7 +414,9 @@ change the bind addresses from 127.0.0.1 to 0.0.0.0
  ~~~
  sudo systemctl restart mysql
  ~~~                                                                              
-  
+ 
+                                                                               
+ #### Also, on the Database server on AWS, open TCP port 3306 with Type: Mysql/Aurora
  =======================================================================================   
     
     

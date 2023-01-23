@@ -74,12 +74,21 @@ In this part, you will learn how to configure a simple Jenkins job/project (thes
     
     
 #### 1. Enable webhooks in your GitHub repository settings (see picture below). GOTO: Settings>Webhook
-    #### Note: payload url is the jenkins server's public address
+
+    
+#### Note: payload url is the jenkins server's public address
     
     
 ![Screenshot from 2023-01-23 19-02-27](https://user-images.githubusercontent.com/66005935/214116050-1b543c12-1031-480f-a648-d3038845d2d4.png)
     
     
+### 2. Go to Jenkins web console, click "New Item" and create a "Freestyle project" 
+    
+    
+    
+![Screenshot from 2023-01-23 19-15-58](https://user-images.githubusercontent.com/66005935/214118173-f5366d7c-c8e7-4427-9d24-de08972fcb79.png)
+
+To connect your GitHub repository, you will need to provide its URL, you can copy from the repository itself   
  
     
     

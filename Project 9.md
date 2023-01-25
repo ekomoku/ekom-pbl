@@ -135,4 +135,53 @@ Now, go ahead and make some change in any file in your GitHub repository (e.g. R
 You will see that a new build has been launched automatically (by webhook) and you can see its results – artifacts, saved on Jenkins server.    
     
 
+    
+    
+![Screenshot from 2023-01-25 21-51-36](https://user-images.githubusercontent.com/66005935/214689030-9056ad9e-7748-466d-9545-3f95e9f6f139.png)
 
+    
+    
+ We have now configured an automated Jenkins job that receives files from GitHub by webhook trigger (this method is considered as ‘push’ because the changes are being ‘pushed’ and files transfer is initiated by GitHub). There are also other methods: trigger one job (downstreadm) from another (upstream), poll GitHub periodically and others.
+
+By default, the artifacts are stored on Jenkins server locally
+
+ls /var/lib/jenkins/jobs/tooling_github/builds/<build_number>/archive/   
+    
+    
+    
+    
+### Step 3 – Configure Jenkins to copy files to NFS server via SSH    
+    
+  
+    
+Now we have our artifacts saved locally on Jenkins server, the next step is to copy them to our NFS server to /mnt/apps directory.
+We will need a plugin that is called "Publish Over SSH".
+    
+    
+#### 1. Install "Publish Over SSH" plugin.
+
+    
+On main dashboard select "Manage Jenkins" and choose "Manage Plugins" menu item.
+
+On "Available" tab search for "Publish Over SSH" plugin and install it
+    
+ 
+    
+#### Configure the job/project to copy artifacts over to NFS server.
+On main dashboard select "Manage Jenkins" and choose "Configure System" menu item.
+
+Scroll down to Publish over SSH plugin configuration section and configure it to be able to connect to your NFS server:
+    
+    
+1. Provide a private key (content of .pem file that you use to connect to NFS server via SSH/Putty)
+2. Arbitrary name
+3. Hostname – can be private IP address of your NFS server
+4. Username – ec2-user (since NFS server is based on EC2 with RHEL 8)
+5. Remote directory – /mnt/apps since our Web Servers use it as a mointing point to retrieve files from the NFS server
+    
+
+    
+    
+    
+    
+    

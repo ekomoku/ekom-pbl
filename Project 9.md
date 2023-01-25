@@ -100,4 +100,28 @@ Click "Build Now" button, if you have configured everything correctly, the build
     
   
 
+ ![Screenshot from 2023-01-25 20-16-11](https://user-images.githubusercontent.com/66005935/214664874-2788bc31-13da-4b7c-b82c-6f59eaaff66e.png)
+
+    
+    
+    
+ You can open the build and check in "Console Output" if it has run successfully.
+
+If so – congratulations! You have just made your very first Jenkins build!
+
+But this build does not produce anything and it runs only when we trigger it manually. Let us fix it.
  
+    
+    
+### 3. Click "Configure" your job/project and add these two configurations
+Configure triggering the job from GitHub webhook:
+    
+Under your project>Goto Configure>Build Triggers>Check the box "GitHub hook trigger for GITScm polling"   
+    
+    
+
+    
+    
+    
+
+

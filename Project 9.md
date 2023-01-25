@@ -90,7 +90,14 @@ In this part, you will learn how to configure a simple Jenkins job/project (thes
 
 To connect your GitHub repository, you will need to provide its URL, you can copy from the repository itself   
  
+On Jenkins, do the following;
+ 1. After creating freestyle project, open the project, Goto> configure> under source code, select Git> paste the URL of the repo from Git in the space provided. If you encounter any error(e.g 403 no valid crum.....), Goto Jenkins Dashboard> manage jenkins> security> under CSRF Protection, check the box for" Enable Proxy Compatibility"> save.
+ 
     
     
+##### Save the configuration and let us try to run the build. For now we can only do it manually.
+Click "Build Now" button, if you have configured everything correctly, the build will be successfull and you will see it under #1
+    
   
-  
+
+ 

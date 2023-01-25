@@ -118,10 +118,21 @@ Configure triggering the job from GitHub webhook:
     
 Under your project>Goto Configure>Build Triggers>Check the box "GitHub hook trigger for GITScm polling"   
     
+  
+ 
     
+![Screenshot from 2023-01-25 21-25-24](https://user-images.githubusercontent.com/66005935/214683549-156abe75-dad9-4715-8297-4563a683b1ef.png)
+    
+    
+    
+#### Configure "Post-build Actions" to archive all the files – files resulted from a build are called "artifacts".
+    
+Uder Build Triggers, Goto> Post-build Actions, click the dropdown and select "Archive the artifcts". In 'Files to archive' field enter ** and click save
 
     
-    
+Now, go ahead and make some change in any file in your GitHub repository (e.g. README.MD file) and push the changes to the master branch.
+
+You will see that a new build has been launched automatically (by webhook) and you can see its results – artifacts, saved on Jenkins server.    
     
 
 

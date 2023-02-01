@@ -181,7 +181,36 @@ Scroll down to Publish over SSH plugin configuration section and configure it to
     
 
     
+Test the configuration and make sure the connection returns Success. Remember, that TCP port 22 on NFS server must be open to receive SSH connections.    
+       
     
+    
+![Screenshot from 2023-02-01 19-13-13](https://user-images.githubusercontent.com/66005935/216133501-40400f54-f90f-458a-85c4-a3bf536ccad6.png)
+
+    
+    
+Save the configuration, open your Jenkins job/project configuration page and add another one "Post-build Action" ( Open your project>Configure> Post Build Actions- click the dropdown> Select "Send build artifacts over SSH". Uder Source files, enter ** and click save.  
+    
+    
+    
+Save this configuration and go ahead, change something in README.MD file in your GitHub Tooling repository.
+
+Webhook will trigger a new job and in the "Console Output" of the job you will find something like this:
+
+SSH: Transferred 25 file(s)
+Finished: SUCCESS
+To make sure that the files in /mnt/apps have been udated – connect via SSH/Putty to your NFS server and check README.MD file
+
+~~~
+cat /mnt/apps/README.md
+~~~
+    
+ 
+    
+    
+    
+![Screenshot from 2023-02-01 19-38-17](https://user-images.githubusercontent.com/66005935/216135634-15c28c70-d57c-4323-a8d2-9bbc208c1fba.png)
+
     
     
     

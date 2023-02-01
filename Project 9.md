@@ -189,6 +189,15 @@ Test the configuration and make sure the connection returns Success. Remember, t
 
     
     
+ GoTo> Post-build Actions>click the dropdown and select "Archive the artifacts". Under "Files to archive, enter ** and click save
+   
+    
+ ![Screenshot from 2023-02-01 19-57-47](https://user-images.githubusercontent.com/66005935/216137853-7cfe2b2a-b931-4969-9b8a-239c197ab9eb.png)
+   
+
+![Screenshot from 2023-02-01 19-38-17](https://user-images.githubusercontent.com/66005935/216135634-15c28c70-d57c-4323-a8d2-9bbc208c1fba.png)      
+    
+    
 Save the configuration, open your Jenkins job/project configuration page and add another one "Post-build Action" ( Open your project>Configure> Post Build Actions- click the dropdown> Select "Send build artifacts over SSH". Uder Source files, enter ** and click save.  
     
     
@@ -209,7 +218,7 @@ cat /mnt/apps/README.md
     
     
     
-![Screenshot from 2023-02-01 19-38-17](https://user-images.githubusercontent.com/66005935/216135634-15c28c70-d57c-4323-a8d2-9bbc208c1fba.png)
+
 
     
     

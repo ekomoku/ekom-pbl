@@ -200,7 +200,15 @@ Test the configuration and make sure the connection returns Success. Remember, t
     
 Save the configuration, open your Jenkins job/project configuration page and add another one "Post-build Action" ( Open your project>Configure> Post Build Actions- click the dropdown> Select "Send build artifacts over SSH". Uder Source files, enter ** and click save.  
     
+
     
+    
+
+![Screenshot from 2023-02-01 20-03-20](https://user-images.githubusercontent.com/66005935/216139079-18b65efe-76d1-4e5e-b83c-bdf5ca6d6ffb.png)
+    
+    
+    
+  
     
 Save this configuration and go ahead, change something in README.MD file in your GitHub Tooling repository.
 

@@ -35,6 +35,21 @@ Tip: Every time you stop/start your Jenkins-Ansible server – you have to recon
 
 ### Step 2 - Prepare your development environment using Visual Studio Code
 
+1. Install visual studio code. Install the extension ( Remote Development)
+2. After you have successfully installed VSC, configure it to connect to your newly created GitHub repository.
+
+3. Clone down your ansible-config-mgt repo to your Jenkins-Ansible instance
+
+~~~
+git clone <ansible-config-mgt repo link>
+~~~
+
+OR clone from VS code
+
+
+
+
+
 
 
 

@@ -285,8 +285,55 @@ git pull
 ~~~
 
 
+Once your code changes appear in master branch – Jenkins will do its job and save all the files (build artifacts) to /var/lib/jenkins/jobs/ansible/builds/<build_number>/archive/ directory on Jenkins-Ansible server.
 
 
+
+### Step 7 – Run first Ansible test
+
+
+Now, it is time to execute ansible-playbook command and verify if your playbook actually works:
+
+
+~~~
+cd ansible-config-mgt
+ansible-playbook -i inventory/dev.yml playbooks/common.yml
+~~~
+
+On the VS code, goto the lower left corner of the window, click 'Open a Remote Window'
+
+
+![Screenshot from 2023-02-11 10-01-58](https://user-images.githubusercontent.com/66005935/218249837-a6388735-d1b0-403f-8800-206dfc83f85e.png)
+
+
+on the top of the VS code window, under the search bar, select 'open ssh configuration file' and select /home/ekom/.ssh/config
+
+Edit the file with code below where Host name is the public IP of the Jenkins - Ansible. 
+
+IdentifyFile : is the path to where the private key is located
+
+
+~~~
+Host Jenkins - Ansible
+    HostName 13.41.159.207
+    User ubuntu
+    IdentityFile /home/ekom/Downloads/jenkinskeypair.pem
+    ForwardAgent yes
+    ControlPath /tmp/ansible-ssh-%h-%p-%r
+    ControlMaster auto
+    ControlPersist 10m
+~~~
+
+
+Then on VS code, click 'Open a Remote Window' on the lower left corner of the window. select 'connect to a host'. At this point, you should see your host listed. Select and connect to it.
+
+
+==============================
+#### Note: if you encounter error when trying to connect again, do the following
+1. Open the command panel on VS code (Ctrl+Shift+P for Windows and Cmd+Shift+P for Mac).
+2. Search for Kill VS Code Server on Host, click it - it will be automatically deleted.
+3. Reload VS Code and establish connection again.
+==============================
 
 
 

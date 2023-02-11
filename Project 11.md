@@ -337,9 +337,26 @@ Then on VS code, click 'Open a Remote Window' on the lower left corner of the wi
 
 
 
+When you coonect to the Ansible-Jenkins server through ssh, on the terminal run the following command:
 
 
+~~~
+ansible-playbook -i /var/lib/jenkins/jobs/ansible/builds/<build-number>/archive/inventory/dev.yml /var/lib/jenkins/jobs/ansible/builds/<build-number>/archive/playbooks/common.yml
+~~~
 
 
+#### Note: build-number is the one jenkins server e.g #4 will be 4
+
+
+GIT commands: after making changes to your file, push with the following commands 
+
+~~~
+git add  playbooks/common.yml
+git commit -m "edited common.yml"
+git push origin prj-11
+~~~
+
+
+#### Then proceed to github to create merge request and merge. Note: in the above codes, common.yml is the file that is edited inside the folder playbooks and the current branch is prj-11.
 
 

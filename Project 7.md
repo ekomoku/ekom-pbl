@@ -32,7 +32,7 @@ On the diagram below you can see a common pattern where several stateless Web Se
 
 
 2. Configure LVM on the server
-    1. a. Create partitions on each of the volumes/disk with 'gdisk' command, e.g sudo gdisk /dev/xvdf
+    1. a. Create partitions on each of the volumes/disk with 'gdisk' command, e.g sudo gdisk /dev/xvdf /dev/xvdg /dev/xvdg
     2. b. Install lvm package using the command 
     
     ~~~

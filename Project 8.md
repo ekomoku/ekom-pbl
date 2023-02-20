@@ -107,7 +107,14 @@ http://<Load-Balancer-Public-IP-Address-or-Public-DNS-Name>/index.php
 
 
 
-Note: If in the Project-7 you mounted /var/log/httpd/ from your Web Servers to the NFS server – unmount them and make sure that each Web Server has its own log directory.
+Note: If in the Project-7 you mounted /var/log/httpd/ from your Web Servers to the NFS server – unmount them and make sure that each Web Server has its own log directory.On each webservers, run the following command to unmount
+
+
+~~~
+sudo umount -f /var/log/httpd
+~~~
+
+
 
 Open ssh/Putty consoles for all Web Servers and run following command:
 

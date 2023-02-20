@@ -31,7 +31,7 @@ Make sure Jenkins is running
 
 
 ~~~
-sudo systemctl status Jenkins
+sudo systemctl status jenkins
 ~~~
 
 

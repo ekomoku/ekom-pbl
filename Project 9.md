@@ -230,12 +230,27 @@ To make sure that the files in /mnt/apps have been udated – connect via SSH/Pu
 cat /mnt/apps/README.md
 ~~~
     
- 
-    
-    
-    
-
 
     
     
+#### Note:if yuo have error like the one below
+    
+    
+![Screenshot from 2023-02-21 22-40-42](https://user-images.githubusercontent.com/66005935/220464843-cc50b0fb-8b92-4a4b-a7df-e644ead267d7.png)
+   
+
+ It has to do with permission issue on the NFS server (no permission on the directory /mnt/apps/).
+    
+    
+ To fix this run the following commands on the NFS server
+    
+    
+~~~
+sudo chown -R nobody: /mnt/apps
+sudo chmod -R 777 /mnt/apps
+sudo chown -R nobody: /mnt/logs
+sudo chmod -R 777 /mnt/logs    
+sudo chown -R nobody: /mnt/opt
+sudo chmod -R 777 /mnt/opt
+~~~
     

@@ -174,11 +174,19 @@ Scroll down to Publish over SSH plugin configuration section and configure it to
     
     
 1. Provide a private key (content of .pem file that you use to connect to NFS server via SSH/Putty)
+    
+![Screenshot from 2023-02-21 22-07-38](https://user-images.githubusercontent.com/66005935/220459007-003c85a3-c99a-4420-98b5-27461383ff92.png)
+    
+
+![Screenshot from 2023-02-21 22-07-38](https://user-images.githubusercontent.com/66005935/220459110-c154f294-9659-42f6-be29-1dcb6b45cec1.png)
+
+
 2. Arbitrary name
 3. Hostname – can be private IP address of your NFS server
 4. Username – ec2-user (since NFS server is based on EC2 with RHEL 8)
 5. Remote directory – /mnt/apps since our Web Servers use it as a mointing point to retrieve files from the NFS server
     
+![Screenshot from 2023-02-21 22-14-24](https://user-images.githubusercontent.com/66005935/220460100-9bca2cf8-a161-4e9f-9a07-da50b539f208.png)
 
     
 Test the configuration and make sure the connection returns Success. Remember, that TCP port 22 on NFS server must be open to receive SSH connections.    

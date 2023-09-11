@@ -40,6 +40,25 @@ Launch an EC2 instance that will serve as “Web Server”. Create 3 volumes in 
 ![Screenshot from 2023-09-11 22-49-46](https://github.com/ekomoku/ekom-pbl/assets/66005935/96631441-e86c-44b9-89ea-2608ce66cb10)
 
 
+![Screenshot from 2023-09-11 22-54-25](https://github.com/ekomoku/ekom-pbl/assets/66005935/906fc905-ef6e-41de-b92b-a802655f9cc3)
+
+
+![Screenshot from 2023-09-11 22-55-31](https://github.com/ekomoku/ekom-pbl/assets/66005935/30816c24-8f0c-4a8c-a823-8c89e6ebdc37)
+
+
+![Screenshot from 2023-09-11 22-56-34](https://github.com/ekomoku/ekom-pbl/assets/66005935/b3fa2062-7dbc-4d98-ba4a-a072ab9412e4)
+
+![Screenshot from 2023-09-11 22-57-22](https://github.com/ekomoku/ekom-pbl/assets/66005935/fa8b940d-9add-4604-b0d9-895308b89d70)
+
+
+![Screenshot from 2023-09-11 22-58-05](https://github.com/ekomoku/ekom-pbl/assets/66005935/ab0f5702-dc97-4b1a-b717-a16ece9d5648)
+
+
+![Screenshot from 2023-09-11 22-58-42](https://github.com/ekomoku/ekom-pbl/assets/66005935/35dd4b67-c2c6-4cc0-a60b-54ad88bf1c29)
+
+
+
+
 
 
 

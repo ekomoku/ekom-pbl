@@ -1,4 +1,4 @@
-# Ansible Refactoring and Static Assignments (Imports and Roles)
+# Project 12: Ansible Refactoring and Static Assignments (Imports and Roles)
 
 ![Screenshot from 2023-09-14 21-14-11](https://github.com/ekomoku/ekom-pbl/assets/66005935/6faf2454-88ad-4cde-b732-62f192733561)
 

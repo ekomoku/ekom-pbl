@@ -405,6 +405,8 @@ exit
 
 Hint: Do not forget to open MySQL port 3306 on DB Server EC2. For extra security, you shall allow access to the DB server ONLY from your Web Server’s IP address, so in the Inbound Rule configuration specify source as /32
   
+![Screenshot from 2023-09-16 20-57-11](https://github.com/ekomoku/ekom-pbl/assets/66005935/58093cdf-e9ea-4429-84c0-ac72fb652fd9)
+
   
   
 1. Install MySQL client and test that you can connect from your Web Server to your DB server by using mysql-client

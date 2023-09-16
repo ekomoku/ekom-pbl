@@ -419,7 +419,7 @@ sudo mysql -u admin -p -h <DB-Server-Private-IP-address>
 ~~~
 
 
-On DB server, create database, create security settings, create user will privileges, then continue below in the db server
+On DB server, create database, create security settings, create user with privileges, then continue below in the db server
 
 mysql> sudo vi /etc/my.cnf  #( insert the following codes)
       [mysqld]

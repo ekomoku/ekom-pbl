@@ -381,6 +381,13 @@ sudo systemctl restart mysqld
 sudo systemctl enable mysqld
 ~~~
 
+Remember you must ensure secure installation and follow the prompt to complete it
+
+~~~
+sudo mysql_secure_installation
+sudo mysql
+sudo mysql -u root -p
+~~~
 
 ## Step 5 — Configure DB to work with WordPress
 
@@ -434,6 +441,11 @@ Restart the service
 sudo systemctl restart mysqld
 ~~~
 
+NEXT
+
+~~~
+sudo vi wp-config.php
+~~~
 
 
 #### Removing/renaming apache Welcome Page

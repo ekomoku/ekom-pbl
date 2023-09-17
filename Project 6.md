@@ -428,9 +428,19 @@ sudo mysql -u admin -p -h <DB-Server-Private-IP-address>
 
 On DB server, create database, create security settings, create user with privileges, then continue below in the db server
 
-mysql> sudo vi /etc/my.cnf  #( insert the following codes)
+~~~
+sudo vi /etc/my.cnf
+~~~
+
+# ( insert the following codes)
+
+~~~
       [mysqld]
-      bind-address=0.0.0.0 #(o.o.o.o meanse from any IP appdress. But if you specified any IP address before; in places of '%', please use the IP address                              here instead)
+      bind-address=0.0.0.0
+~~~
+
+
+# (o.o.o.o meanse from any IP appdress. But if you specified any IP address before; in places of '%', please use the IP address here instead)
       
 
 
@@ -441,14 +451,16 @@ Restart the service
 sudo systemctl restart mysqld
 ~~~
 
-NEXT
+
+NEXT: On the Web Server do the following; define the database name
+
 
 ~~~
 sudo vi wp-config.php
 ~~~
 
 
-#### Removing/renaming apache Welcome Page
+#### Removing/renaming apache Welcome Page on Web Server
 
 
 ~~~

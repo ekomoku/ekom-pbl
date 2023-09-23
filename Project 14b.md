@@ -119,6 +119,17 @@ https://www.youtube.com/watch?v=PRpEbFZi7nI&feature=youtu.be
 
 ![Screenshot from 2023-09-15 23-05-35](https://github.com/ekomoku/ekom-pbl/assets/66005935/b03aac6a-cdf9-4132-81e9-d7e2f4db450c)
 
+![Capture](https://github.com/ekomoku/ekom-pbl/assets/66005935/acff863c-5baf-4b68-b3e5-0a016cf54225)
+
+
+![Capture](https://github.com/ekomoku/ekom-pbl/assets/66005935/48dc3c49-c6a7-4b2d-aa49-ba27264b2dd2)
+
+
+![Capture](https://github.com/ekomoku/ekom-pbl/assets/66005935/411522e6-bf4c-4989-b20b-225fb21b092e)
+
+
+
+
 
 
 

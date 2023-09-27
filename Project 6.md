@@ -1,6 +1,15 @@
 
 ## Project 6: WEB SOLUTION WITH WORDPRESS
 
+![Screenshot from 2023-09-27 13-09-46](https://github.com/ekomoku/ekom-pbl/assets/66005935/d5215d56-e3d2-43dc-ba73-d458c11aca7f)
+
+
+![Screenshot from 2023-09-27 13-10-28](https://github.com/ekomoku/ekom-pbl/assets/66005935/6ca4e35d-7b03-463c-9ce6-e1d1989677a3)
+
+![Screenshot from 2023-09-27 13-11-14](https://github.com/ekomoku/ekom-pbl/assets/66005935/85e384ba-c0cc-4cdf-b3ed-343a2336f4bf)
+
+
+
 ### Step 1: Prepare a Web Server
 
 #### 1. Launch an EC2 instance that will serve as "Web Server". Create 3 volumes in the same AZ as your Web Server EC2, each of 10 GiB

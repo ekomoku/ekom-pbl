@@ -252,6 +252,12 @@ The command ~~~ sudo blkid~~~  will give you a window like the one below where y
 
 
 
+~~~
+sudo vi /etc/fstab
+~~~
+
+
+
 It should look like the screen below; add the mount points ( in this case /var/www/html  and  /var/log respectively for the two logical volumes) and the file system used ( ext4 )
 
 

@@ -241,6 +241,7 @@ sudo vi /etc/fstab
 
 UUUID = 68fb04ff-0e53-479f-ade7-ee0fd0aba01c
 
+
 UUUID = 27d15c21-82eb-418f-9b0f-f92166bf99c3
 
 

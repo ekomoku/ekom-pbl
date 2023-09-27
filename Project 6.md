@@ -240,7 +240,22 @@ sudo vi /etc/fstab
 
 
 UUUID = 68fb04ff-0e53-479f-ade7-ee0fd0aba01c
+
 UUUID = 27d15c21-82eb-418f-9b0f-f92166bf99c3
+
+
+The command ~~~ sudo blkid~~~  will give you a window like the one below where you'll pick the UUID for the logical volumes/mount points
+
+
+![Screenshot from 2023-09-27 19-59-47](https://github.com/ekomoku/ekom-pbl/assets/66005935/16191086-f49f-4dfb-9a72-a9eb0f2e7bd9)
+
+
+
+It should look like the screen below; add the mount points ( in this case /var/www/html  and  /var/log respectively for the two logical volumes) and the file system used ( ext4 )
+
+
+![Screenshot from 2023-09-27 19-53-30](https://github.com/ekomoku/ekom-pbl/assets/66005935/3bec2eb0-fb23-4941-96c0-d4482b2f05a6)
+
 
 
 #### 1. Test the configuration and reload the daemon

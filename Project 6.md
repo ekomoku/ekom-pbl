@@ -337,9 +337,21 @@ sudo yum -y update
 2. Install wget, Apache and it’s dependencies
 
 
+### Note: RedHat requires installation of latest version of PHP. You can get from  https://www.tecmint.com/install-lamp-on-centos-8/
+
+Run the following commands 
 
 ~~~
 sudo yum -y install wget httpd php php-mysqlnd php-fpm php-json
+sudo dnf install https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm
+sudo dnf install dnf-utils http://rpms.remirepo.net/enterprise/remi-release-8.rpm
+sudo dnf module list php
+sudo dnf module reset php
+sudo dnf module enable php:remi-8.0.....change the version to the latest
+sudo yum install php php-opcache php-gd php-curl php-mysqlnd
+sudo systemctl start php-fpm
+sudo systemctl enable php-fpm
+setsebool -P httpd_execmem 1
 ~~~
 
 
@@ -359,16 +371,7 @@ sudo systemctl start httpd
 Run the following commands 
 
 
-~~~
-sudo dnf install https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm
-sudo dnf install dnf-utils http://rpms.remirepo.net/enterprise/remi-release-8.rpm
-sudo yum module list php
-sudo yum module reset php
-sudo yum install php php-opcache php-gd php-curl php-mysqlnd
-sudo systemctl start php-fpm
-sudo systemctl enable php-fpm
-setsebool -P httpd_execmem 1
-~~~
+
 
 
 5. Restart Apache

@@ -381,6 +381,20 @@ sudo systemctl restart httpd
   cd   wordpress
   sudo wget http://wordpress.org/latest.tar.gz
   sudo tar xzvf latest.tar.gz
+  cd wordpress/
+  sudo cp -R wp-config-sample.php wp-config.php
+  cd ..
+  sudo cp -R wordpress/ /var/www/html/
+  cd /var/www/html
+` sudo rm -rf wordpress/
+  sudo rm -rf lost+found/
+  cd ../..
+  cd
+  cd wordpress
+  sudo cp -R wordpress/. /var/www/html/
+  cd /var/www/html
+  
+  
   sudo rm -rf latest.tar.gz
   sudo cp wordpress/wp-config-sample.php wordpress/wp-config.php
   sudo cp -R wordpress /var/www/html/

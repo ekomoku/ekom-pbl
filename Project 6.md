@@ -399,8 +399,22 @@ sudo systemctl restart httpd
   sudo cp wordpress/wp-config-sample.php wordpress/wp-config.php
   sudo cp -R wordpress /var/www/html/
   ~~~
+
+
   
-  
+  #### we need to install mysql server on the web server 
+
+~~~
+sudo yum install mysql-server
+~~~
+
+On the Web server, start the database with the command
+
+~~~
+sudo systemctl start mysqld
+sudo system enable mysqld
+sudo systemctl status mysqld
+~~~
   
   
 7. Configure SELinux Policies

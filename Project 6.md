@@ -298,6 +298,14 @@ Use pvcreate utility to mark each of 3 disks as physical volumes (PVs) to be use
 ## Codes
 
 ~~~
+sudo gdisk /dev/xvdf
+sudo gdisk /dev/xvdg
+sudo gdisk /dev/xvdh
+
+sudo yum install lvm2
+
+sudo pvcreate /dev/xvdf1 /dev/xvdg1 /dev/xvdh1
+
 sudo vgcreate db-vg /dev/xvdh1 /dev/xvdg1 /dev/xvdf1
 sudo lvcreate -n db-lv -L 20G db-vg
 sudo mkdir /db

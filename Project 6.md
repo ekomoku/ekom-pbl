@@ -312,7 +312,7 @@ sudo pvcreate /dev/xvdf1 /dev/xvdg1 /dev/xvdh1
 sudo vgcreate db-vg /dev/xvdh1 /dev/xvdg1 /dev/xvdf1
 sudo lvcreate -n db-lv -L 20G db-vg
 sudo mkdir /db
-sudo mkfs -t ext4 /dev/db-vg/db-lv
+sudo mkfs.ext4 /dev/db-vg/db-lv
 sudo mount /dev/db-vg/db-lv /db
 sudo vi /etc/fstab  and copy and paste the UUID like thise >UID=66390432-bce4-4798-880f-3030020921ba /db ext4 defaults 0 0
 

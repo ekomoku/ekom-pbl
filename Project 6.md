@@ -366,14 +366,6 @@ sudo systemctl start httpd
 
 
 
-4. ### Note: RedHat requires installation of latest version of PHP. You can get from  https://www.tecmint.com/install-lamp-on-centos-8/
-
-Run the following commands 
-
-
-
-
-
 5. Restart Apache
 
 

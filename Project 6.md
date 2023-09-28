@@ -394,10 +394,6 @@ sudo systemctl restart httpd
   sudo cp -R wordpress/. /var/www/html/
   cd /var/www/html
   
-  
-  sudo rm -rf latest.tar.gz
-  sudo cp wordpress/wp-config-sample.php wordpress/wp-config.php
-  sudo cp -R wordpress /var/www/html/
   ~~~
 
 

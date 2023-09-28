@@ -447,7 +447,7 @@ sudo systemctl restart mysqld
 sudo systemctl enable mysqld
 ~~~
 
-Remember you must ensure secure installation and follow the prompt to complete it
+Remember you must ensure secure installation on mysql on DB server and follow the prompt to complete it
 
 ~~~
 sudo mysql_secure_installation
@@ -469,6 +469,16 @@ SHOW DATABASES;
 exit
 ~~~
 
+#### The code above can also be written as 
+
+~~~
+sudo mysql
+CREATE DATABASE wordpress;
+CREATE USER 'wordpress'@'%' IDENTIFIED WITH mysql_native_password BY 'password';
+GRANT ALL PRIVILEGES ON *.* TO 'wordpress'@'%' WITH GRANT OPTION;
+FLUSH PRIVILEGES;
+select user, host from mysql.user;
+~~~
 
 
 

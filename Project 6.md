@@ -297,6 +297,9 @@ Use pvcreate utility to mark each of 3 disks as physical volumes (PVs) to be use
 
 ## Codes
 
+After creating and attaching the volumes, continue with the following;
+
+
 ~~~
 sudo gdisk /dev/xvdf
 sudo gdisk /dev/xvdg

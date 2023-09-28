@@ -420,9 +420,10 @@ sudo systemctl status mysqld
 7. Configure SELinux Policies
 
   ~~~
-  sudo chown -R apache:apache /var/www/html/wordpress
+  sudo chown -R apache:apache /var/www/html/
   sudo chcon -t httpd_sys_rw_content_t /var/www/html/wordpress -R
   sudo setsebool -P httpd_can_network_connect=1
+  sudo setsebool -P httpd_can_network_connect_db 1
   ~~~
   
   
@@ -455,7 +456,7 @@ sudo mysql
 sudo mysql -u root -p
 ~~~
 
-## Step 5 — Configure DB to work with WordPress
+## Step 5 — Configure DB to work with WordPress (  on DB server)
 
 
 
@@ -502,7 +503,7 @@ sudo mysql -u admin -p -h <DB-Server-Private-IP-address>
 ~~~
 
 
-On DB server, create database, create security settings, create user with privileges, then continue below in the db server
+On DB server, after creating database, creating security settings, creating user with privileges, then continue below in the db server
 
 ~~~
 sudo vi /etc/my.cnf
@@ -533,6 +534,7 @@ NEXT: On the Web Server do the following; define the database name
 
 ~~~
 sudo vi wp-config.php
+sudo systemctl restart httpd
 ~~~
 
 

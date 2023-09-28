@@ -365,7 +365,6 @@ sudo systemctl start httpd
 ~~~
 
 
-
 5. Restart Apache
 
 

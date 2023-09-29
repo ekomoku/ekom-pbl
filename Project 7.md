@@ -68,7 +68,7 @@ On the diagram below you can see a common pattern where several stateless Web Se
 
     ~~~
     sudo lvcreate -n lv-opt -L 9G webdata-vg
-    sudo lvcreate -n lv-apps -L 9G webdata vg
+    sudo lvcreate -n lv-apps -L 9G webdata-vg
     sudo lvcreate -n lv-logs -L 9G webdata-vg
     ~~~
     

@@ -135,6 +135,10 @@ To check your subnet cidr – open your EC2 details in AWS web console and locat
 Make sure we set up permission that will allow our Web servers to read, write and execute files on NFS:
 
 
+On the NFS Server, run the following commands;
+
+
+
 ~~~
 sudo chown -R nobody: /mnt/apps
 sudo chown -R nobody: /mnt/logs

@@ -153,9 +153,9 @@ sudo systemctl restart nfs-server.service
 
 
 
-#### Configure access to NFS for clients within the same subnet 
+##### Configure access to NFS for clients within the same subnet 
 
-#### NOTE: the subnet-CIDR in the code below is that of the web servers
+##### NOTE: the subnet-CIDR in the code below is that of the web servers, so configure the following on the NFS server
 
 
 

@@ -285,7 +285,7 @@ sudo dnf install dnf-utils http://rpms.remirepo.net/enterprise/remi-release-8.rp
 
 sudo dnf module reset php
 
-sudo dnf module enable php:remi-7.4
+sudo dnf module enable php:remi-8.0.....change the version to the latest from https://www.tecmint.com/install-lamp-on-centos-8/
 
 sudo dnf install php php-opcache php-gd php-curl php-mysqlnd
 

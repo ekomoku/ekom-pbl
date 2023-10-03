@@ -304,6 +304,15 @@ setsebool -P httpd_execmem 1
 6. Verify that Apache files and directories are available on the Web Server in /var/www and also on the NFS server in /mnt/apps. If you see the same files – it means NFS is mounted correctly. You can try to create a new file touch test.txt from one server and check if the same file is accessible from other Web Servers.
 
 
+On the web server, create a test file in the /var/www directory as below;
+
+
+~~~
+sudo touch /var/www/test.txt
+ls /var/www
+~~~
+
+
 7. Locate the log folder for Apache on the Web Server and mount it to NFS server’s export for logs. Repeat step №4 to make sure the mount point will persist after reboot.
 
 

@@ -316,6 +316,9 @@ ls /var/www
 7. Locate the log folder for Apache on the Web Server and mount it to NFS server’s export for logs. Repeat step №4 to make sure the mount point will persist after reboot.
 
 
+The Log folder for Apache on the webserver is located on /var/www/httpd
+
+
 ~~~
 sudo mount -t nfs -o rw,nosuid <NFS-Server-Private-IP-Address>:/mnt/logs /var/log/httpd
 ~~~
@@ -334,7 +337,7 @@ add the following
 
 
 
-8. Fork the tooling source code from Darey.io Github Account to your Github account.
+8. Fork the tooling source code from Darey.io Github Account ( https://github.com/darey-io/tooling.git) to your Github account.
 
 To do that, first install git on the web server
 

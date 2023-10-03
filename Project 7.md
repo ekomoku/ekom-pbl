@@ -336,7 +336,6 @@ add the following
 ~~~
 
 
-
 8. Fork the tooling source code from Darey.io Github Account ( https://github.com/darey-io/tooling.git) to your Github account.
 
 To do that, first install git on the web server

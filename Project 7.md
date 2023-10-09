@@ -400,10 +400,10 @@ sudo vi /var/www/html/functions.php
 ~~~
 check under
 //connect to database ..... and edit as 
-$db=mysqli.connect(<'db-private-ip-address'>, 'webaccess', 'password', 'toolong');
+$db=mysqli_connect(<'db-private-ip-address'>, 'webaccess', 'password', 'tooling');
 
        
-##### Note: webaccess is the db user, 'password' is the pssword that was set  
+##### Note: webaccess is the db user, 'password' is the pssword that was set and 'tooling' is the name of the dtabase.  
     
     
 #### To apply tooling-db.sql run the following command

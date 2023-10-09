@@ -406,7 +406,7 @@ $db=mysqli_connect(<'db-private-ip-address'>, 'webaccess', 'password', 'tooling'
 ##### Note: webaccess is the db user, 'password' is the pssword that was set and 'tooling' is the name of the dtabase.  
     
     
-#### To apply tooling-db.sql run the following command
+#### To apply tooling-db.sql run the following command still on the webserver
 1. First, cd into the tooling folder   
 2. Also ensure mysql is install, if not install it with ~~~sudo yum install mysql~~~
 ~~~

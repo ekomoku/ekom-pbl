@@ -386,7 +386,7 @@ Then start apache, if its not running
 
 ~~~
 sudo systemctl start httpd
-sudo systemctl enable http
+sudo systemctl enable httpd
 ~~~
 
 

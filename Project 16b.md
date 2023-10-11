@@ -39,12 +39,15 @@ Create an S3 bucket ( https://docs.aws.amazon.com/AmazonS3/latest/userguide/Welc
 ![Screenshot from 2023-10-11 15-23-14](https://github.com/ekomoku/ekom-pbl/assets/66005935/8a6ad6bc-25b5-42c8-8ce2-eba611ef1739)
 
 
+###### To setup Terraform CLI, follow this instruction here ( https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli) 
+
+
 
 ![Screenshot from 2023-10-11 15-24-09](https://github.com/ekomoku/ekom-pbl/assets/66005935/216a8e8b-b9d6-428c-99f5-bbd2b262a0cc)
 
 
 
-###### To setup Terraform CLI, follow this instruction here ( https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli) 
+
 
 
 

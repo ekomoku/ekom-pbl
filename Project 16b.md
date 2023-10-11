@@ -31,3 +31,23 @@ Create an S3 bucket ( https://docs.aws.amazon.com/AmazonS3/latest/userguide/Welc
     Your understanding of your goal (desired AWS infrastructure end state)
     Your knowledge of the IaC technology used (in this case – Terraform)
     Your ability to effectively use up to date Terraform documentation here ( https://www.terraform.io/docs/configuration) 
+
+    ![Screenshot from 2023-10-11 15-21-13](https://github.com/ekomoku/ekom-pbl/assets/66005935/61e9e8ff-084f-4e4b-bbfe-dd405164b8ce)
+
+
+![Screenshot from 2023-10-11 15-23-14](https://github.com/ekomoku/ekom-pbl/assets/66005935/8a6ad6bc-25b5-42c8-8ce2-eba611ef1739)
+
+
+![Screenshot from 2023-10-11 15-24-09](https://github.com/ekomoku/ekom-pbl/assets/66005935/216a8e8b-b9d6-428c-99f5-bbd2b262a0cc)
+
+
+![Screenshot from 2023-10-11 15-24-59](https://github.com/ekomoku/ekom-pbl/assets/66005935/8f6e8943-08b1-4ac1-a86e-d89fde3cdb8c)
+
+
+![Screenshot from 2023-10-11 15-25-43](https://github.com/ekomoku/ekom-pbl/assets/66005935/3dbdef63-7085-4a35-ab22-4844e2312025)
+
+
+![Screenshot from 2023-10-11 15-26-30](https://github.com/ekomoku/ekom-pbl/assets/66005935/bcae71f2-b243-4d79-a3a9-45aee77b0bcf)
+
+
+![Screenshot from 2023-10-11 15-27-10](https://github.com/ekomoku/ekom-pbl/assets/66005935/c771a213-b112-4e57-8e88-9eceeb23c409)

@@ -275,4 +275,8 @@ sudo chmod -R 777 /mnt/logs
 sudo chown -R nobody: /mnt/opt
 sudo chmod -R 777 /mnt/opt
 ~~~
-    
+
+
+
+![Screenshot from 2023-10-12 22-04-07](https://github.com/ekomoku/ekom-pbl/assets/66005935/cf06b954-b38e-4bf1-9431-3d8d9ed24886)
+

@@ -41,7 +41,6 @@ sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys <PUBKEY>
 where <PUBKEY> is your missing public key for repository, e.g. 8BAF9A6F
 
 
-
 Then update
 
 ~~~

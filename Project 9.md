@@ -20,14 +20,36 @@ sudo apt install default-jdk-headless
 
 ~~~
 wget -q -O - https://pkg.jenkins.io/debian-stable/jenkins.io.key | sudo apt-key add -
-sudo sh -c 'echo deb https://pkg.jenkins.io/debian-stable binary/ > \
-    /etc/apt/sources.list.d/jenkins.list'
-sudo apt update
-sudo apt-get install jenkins
 ~~~
 
 
+~~~
+sudo sh -c 'echo deb http://pkg.jenkins.io/debian-stable binary/ > /etc/apt/sources.list.d/jenkins.list'
+
+sudo apt update
+
+sudo apt install jenkins
+~~~
+
+
+If you encounter error e.g NO PUBKEY,  run the following commands
+
+~~~
+sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys <PUBKEY>
+~~~
+
+where <PUBKEY> is your missing public key for repository, e.g. 8BAF9A6F
+
+
+
 Make sure Jenkins is running
+
+Then update
+
+~~~
+sudo apt-get update
+~~~
+
 
 
 ~~~

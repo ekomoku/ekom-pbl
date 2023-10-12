@@ -61,7 +61,7 @@ sudo systemctl status jenkins
 
 5. Perform initial Jenkins setup.
 
-From your browser access http://<Jenkins-Server-Public-IP-Address-or-Public-DNS-Name>:8080
+From your browser access http:// <Jenkins-Server-Public-IP-Address-or-Public-DNS-Name> :8080
 
 You will be prompted to provide a default admin password
   

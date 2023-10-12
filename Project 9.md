@@ -42,8 +42,6 @@ where <PUBKEY> is your missing public key for repository, e.g. 8BAF9A6F
 
 
 
-Make sure Jenkins is running
-
 Then update
 
 ~~~
@@ -51,10 +49,13 @@ sudo apt-get update
 ~~~
 
 
+Make sure Jenkins is running
+
 
 ~~~
 sudo systemctl status jenkins
 ~~~
+
 
 
 4. By default Jenkins server uses TCP port 8080 – open it by creating a new Inbound Rule in your EC2 Security Group

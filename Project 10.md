@@ -86,6 +86,49 @@ Now, connect to your Nginx LB server, update and install nginx
 ~~~
 sudo apt update
 sudo apt install nginx -y
+sudo systemctl enable nginx
+sudo systemctl start nginx
+sudo systemctl status nginx
+~~~
+
+Create configuration for reverse proxy settings
+
+On Nginx LB, update the /etc/hosts file with local IP addresses of the webservers in project 7
+
+~~~
+sudo vi /etc/hosts
 ~~~
 
 
+![Screenshot from 2023-10-30 10-30-30](https://github.com/ekomoku/ekom-pbl/assets/66005935/751e612e-155e-4655-a762-cd2c1247d6f3)
+
+
+Open the default nginx configuration file and insert the following lines of code, change the server names to suit your case and the domain
+
+~~~
+sudo vi /etc/nginx/nginx.conf
+~~~
+
+
+~~~
+#insert following configuration into http section
+
+ upstream myproject {
+    server Web1 weight=5;
+    server Web2 weight=5;
+  }
+
+server {
+    listen 80;
+    server_name www.domain.com;
+    location / {
+      proxy_pass http://myproject;
+    }
+  }
+
+#comment out this line
+#       include /etc/nginx/sites-enabled/*;
+~~~
+
+
+![Screenshot from 2023-10-30 11-05-43](https://github.com/ekomoku/ekom-pbl/assets/66005935/0e82583f-0b96-4ef4-b211-5c0e03052eaf)

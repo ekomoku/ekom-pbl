@@ -132,3 +132,36 @@ server {
 
 
 ![Screenshot from 2023-10-30 11-05-43](https://github.com/ekomoku/ekom-pbl/assets/66005935/0e82583f-0b96-4ef4-b211-5c0e03052eaf)
+
+
+
+Create config file in Nginx with the following commands
+
+~~~
+sudo vi /etc/nginx/sites-available/load_balancer.conf
+~~~
+
+
+Paste the following config
+
+
+~~~
+upstream web {
+
+server <local IP address of webserver1>;
+server <local IP address of webserver2>;
+}
+
+server {
+ listen 80;
+ server_name devopsengineer.net www.devopsengineer.net;
+location / {
+ proxy_set_header X-Forwared-For $proxy_add_x_forwarded_for;
+ proxy_pass http://web;
+ }
+}
+~~~
+
+
+
+

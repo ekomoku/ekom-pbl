@@ -35,11 +35,57 @@ There are different types of SSL/TLS certificates.
 We can either uninstall Apache from the existing Load Balancer server, or create a fresh installation of Linux for Nginx.
 
 1. Create an EC2 VM based on Ubuntu Server 20.04 LTS and name it Nginx LB (do not forget to open TCP port 80 for HTTP connections, also open TCP port 443 – this port is used for secured HTTPS connections)
-2. 
+2. Register a new domain name and configure secured connection using SSL/TLS certificates
+
+
+![Screenshot from 2023-10-29 23-27-08](https://github.com/ekomoku/ekom-pbl/assets/66005935/f769c9d1-e590-4f00-be8c-3169047c7cf1)
+
+
+To create a domain, I used freehostia.com to create free domain. After creating domain, Goto Route 53 in AWS and create Hosted Zones in public domain using the domain you created earlier on Freehostia.com
+
+
+![Screenshot from 2023-10-29 23-35-32](https://github.com/ekomoku/ekom-pbl/assets/66005935/86b25af1-4c00-40c5-b911-fafc3a0ae855)
+
+
+On freehostia.com, goto 'My Domains' > DNS Records, click on the domain you registered, you'll see the dropdown.
+
+Copy the DNS/NS server address on AWS and edit the one on frehostia.com
 
 
 
+![Screenshot from 2023-10-29 23-47-14](https://github.com/ekomoku/ekom-pbl/assets/66005935/681e05b7-edda-429d-8acd-86fb081474fa)
 
 
+
+![Screenshot from 2023-10-29 23-57-26](https://github.com/ekomoku/ekom-pbl/assets/66005935/fb067a74-6b7c-4548-a9df-1d04ea89b5ab)
+
+
+Goto > AWS > Route 53> Hosted Zones, click on the Hosted Zone Name you eralier created, click on 'create record'
+
+
+![Screenshot from 2023-10-30 00-07-58](https://github.com/ekomoku/ekom-pbl/assets/66005935/a3bc940e-0267-4204-b56f-4419f44070c3)
+
+
+Copy the public IPv4 IP or elestic IP of the NGINX LB and paste in Route 53 record in the 'value' field. then click 'create record' leaving other fields as default
+
+
+![Screenshot from 2023-10-30 00-13-54](https://github.com/ekomoku/ekom-pbl/assets/66005935/67f38193-61a5-42e8-ae35-131dc6339c0d)
+
+
+On AWS, create another record for 'www' with the same public IP or elastic addres of the Nginx LB
+
+
+Your AWS Route 53 looks like this;
+
+
+![Screenshot from 2023-10-30 00-18-40](https://github.com/ekomoku/ekom-pbl/assets/66005935/22deb856-2274-466a-8ce5-09aa5526dc5a)
+
+Now, connect to your Nginx LB server, update and install nginx
+
+
+~~~
+sudo apt update
+sudo apt install nginx -y
+~~~
 
 

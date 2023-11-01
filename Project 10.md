@@ -163,5 +163,30 @@ location / {
 ~~~
 
 
+Remove the default site with the following commands
+
+
+~~~
+sudo rm -f /etc/nginx/sites-enabled/default
+~~~
+
+
+To check if Nginx is successfully configured
+
+~~~
+sudo nginx -t
+~~~
+
+
+Continue with the sites-enabled
+
+
+~~~
+cd /etc/nginx/sites-enabled/
+ls
+sudo ln -s ../sites-available/load_balancer.conf .
+~~~
+
+
 
 

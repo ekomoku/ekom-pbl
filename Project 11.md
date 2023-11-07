@@ -17,9 +17,48 @@ sudo apt install ansible
 Check your Ansible version by running ansible --version
 4. Configure Jenkins build job to save your repository content every time you change it – this will solidify your Jenkins configuration skills acquired in Project 9.
 
-4a. Create a new Freestyle project ansible in Jenkins and point it to your ‘ansible-config-mgt’ repository.
+4a. Create a new Freestyle project ansible in Jenkins and point it to your ‘ansible-config’ repository.
+
+
+![Screenshot from 2023-11-07 22-07-37](https://github.com/ekomoku/ekom-pbl/assets/66005935/1a8ca138-0eb9-4768-abae-8e6a7bf40ab7)
+
+In Jenkins, Goto>Ansible>Configuration, under source code Management, check the 'Git' radio utton and copy the url of the ‘ansible-config’ repository in Git and paste it there.
+
+
+![Screenshot from 2023-11-07 22-36-45](https://github.com/ekomoku/ekom-pbl/assets/66005935/a0a1ed51-1a32-425e-8ac8-c10ad1efe9e3)
+
+In jenkins, under 'Build Triggers' select 'GitHub hook trigger for GITScm polling?'
+
+![Screenshot from 2023-11-07 22-39-27](https://github.com/ekomoku/ekom-pbl/assets/66005935/3f9a4ef5-677c-4990-a8ac-11923f3a4c77)
+
+
+![Screenshot from 2023-11-07 22-37-33](https://github.com/ekomoku/ekom-pbl/assets/66005935/cabd5efd-39cd-4155-9e57-e7509782293a)
+
+
 4b. Configure Webhook in GitHub and set webhook to trigger ansible build.
+
+To configure webhook in Git, Goto > ansible-config > settings > webhooks > Add Webhooks, copy the IPv4 IP address of the Jenkins-ansible server and paste un 'Payload URL as shown below
+
+~~~
+http://35.183.17.65:8080/github-webhook/
+~~~
+
+change the content type to 'application/json'
+
+
+![Screenshot from 2023-11-07 22-57-32](https://github.com/ekomoku/ekom-pbl/assets/66005935/e1ff193e-4518-48a2-8619-1c3753d15a78)
+
+
+
 4c. Configure a Post-build job to save all (**) files, like you did it in Project 9.
+
+In jenkins, goto > Post-build Actions> select 'Archive the artifacts and enter ** in the field. 
+
+#### Remember to change the branch from /master to /main in jenkins
+
+
+![Screenshot from 2023-11-07 23-02-24](https://github.com/ekomoku/ekom-pbl/assets/66005935/bf44d5e4-979b-4d84-9a2e-af250820bbad)
+
 
 5. Test your setup by making some change in README.MD file in master branch and make sure that builds starts automatically and Jenkins saves the files (build artifacts) in following folder.
 

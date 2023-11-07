@@ -87,3 +87,131 @@ IMPORTANT:
 
 
 ![Screenshot from 2023-10-11 20-26-43](https://github.com/ekomoku/ekom-pbl/assets/66005935/794f266e-2b4b-432d-9fb3-b26e5c99df13)
+
+
+![Screenshot from 2023-11-07 14-13-13](https://github.com/ekomoku/ekom-pbl/assets/66005935/3123c85c-a1af-4bcf-aabb-ef822c1d5eb6)
+
+
+![Screenshot from 2023-11-07 14-14-07](https://github.com/ekomoku/ekom-pbl/assets/66005935/f1d017f9-8243-4057-b8c5-57ac3ab1af81)
+
+
+![Screenshot from 2023-11-07 14-15-03](https://github.com/ekomoku/ekom-pbl/assets/66005935/14944a7c-d11b-415b-be8a-e81ca23446f0)
+
+
+![Screenshot from 2023-11-07 14-15-50](https://github.com/ekomoku/ekom-pbl/assets/66005935/e93edcef-694d-47d4-b3d1-ad5efa65cd9c)
+
+
+![Screenshot from 2023-11-07 14-17-14](https://github.com/ekomoku/ekom-pbl/assets/66005935/3e20b384-dac3-43ef-a782-adb7da6d322d)
+
+
+![Screenshot from 2023-11-07 14-18-24](https://github.com/ekomoku/ekom-pbl/assets/66005935/1e1238e4-6b49-44f4-b61f-789180c52024)
+
+
+![Screenshot from 2023-11-07 14-19-38](https://github.com/ekomoku/ekom-pbl/assets/66005935/87cd1536-a990-40bc-9100-bb766408c4fc)
+
+
+![Screenshot from 2023-11-07 14-20-21](https://github.com/ekomoku/ekom-pbl/assets/66005935/52d23c75-efbc-441a-bfc2-e9043f3b0996)
+
+
+
+### Creating Austoaling Groups
+
+This Section we will create the Auto Scaling Group (ASG)
+
+Now we need to configure our ASG to be able to scale the EC2s out and in depending on the application traffic.
+
+Before we start configuring an ASG, we need to create the launch template and the the AMI needed. For now we are going to use a random AMI from AWS, then in project 19, we will use Packerto create our ami.
+
+Based on our Architetcture we need for Auto Scaling Groups for bastion, nginx, wordpress and tooling, so we will create two files; asg-bastion-nginx.tf will contain Launch Template and
+Austoscaling froup for Bastion and Nginx, then asg-wordpress-tooling.tf will contain Launch Template and Austoscaling group for wordpress and tooling.
+
+Useful Terraform Documentation, go through this documentation and understand the arguement needed for each resources:
+
+    SNS-topic ( https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/sns_topic)
+
+    
+    SNS-notification ( https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/autoscaling_notification)
+
+    
+    Austoscaling ( https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/autoscaling_group)
+    
+
+    Launch-template ( https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/launch_template)
+
+
+ ![Screenshot from 2023-11-07 14-31-32](https://github.com/ekomoku/ekom-pbl/assets/66005935/29f810b0-1984-4a37-b37b-f8128653d647)
+
+
+
+![Screenshot from 2023-11-07 14-32-25](https://github.com/ekomoku/ekom-pbl/assets/66005935/621ad0c7-01b9-4152-81cc-e8bf74d8536f)
+
+
+![Screenshot from 2023-11-07 14-34-30](https://github.com/ekomoku/ekom-pbl/assets/66005935/f095603b-257e-4362-b51e-6acc5c23b4c3)
+
+
+![Screenshot from 2023-11-07 14-35-16](https://github.com/ekomoku/ekom-pbl/assets/66005935/7de83d28-90a2-4f60-a85d-4a82077fbb85)
+
+
+![Screenshot from 2023-11-07 14-35-57](https://github.com/ekomoku/ekom-pbl/assets/66005935/1df1188f-d2e5-48cf-b112-074f49af1fc7)
+
+
+![Screenshot from 2023-11-07 14-41-09](https://github.com/ekomoku/ekom-pbl/assets/66005935/67f29528-3d28-4c20-af66-59e39fb9b332)
+
+
+![Screenshot from 2023-11-07 14-42-07](https://github.com/ekomoku/ekom-pbl/assets/66005935/62d6a475-41dc-4c90-8805-e3131c5db2a3)
+
+
+![Screenshot from 2023-11-07 14-42-56](https://github.com/ekomoku/ekom-pbl/assets/66005935/f79254a8-67ae-41aa-ba29-84217b6e49bd)
+
+
+![Screenshot from 2023-11-07 14-43-34](https://github.com/ekomoku/ekom-pbl/assets/66005935/c0e2fbc7-cba6-4668-89fe-6b3b030f8e33)
+
+
+
+### Storage and Database
+
+Useful Terraform Documentation, go through this documentation and understand the arguement needed for each resources:
+
+    RDS ( https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/db_subnet_group)
+
+    
+    EFS ( https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/efs_file_system)
+
+    
+    KMS ( https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/kms_key)
+
+    
+   #### Create Elastic File System (EFS)
+
+
+In order to create an EFS you need to create a KMS key.
+
+
+AWS Key Management Service (KMS) makes it easy for you to create and manage cryptographic keys and control their use across a wide range of AWS services and in your applications.
+
+
+Add the following code to efs.tf
+
+
+![Screenshot from 2023-11-07 14-46-56](https://github.com/ekomoku/ekom-pbl/assets/66005935/04f9b818-31b0-48a8-82c5-31bf86656021)
+
+
+![Screenshot from 2023-11-07 14-47-42](https://github.com/ekomoku/ekom-pbl/assets/66005935/cfe9b3e2-405e-44c2-9a10-7eeaf0a2584a)
+
+
+![Screenshot from 2023-11-07 14-48-14](https://github.com/ekomoku/ekom-pbl/assets/66005935/b6240866-e445-4b00-8830-8dfd4131ddfd)
+
+
+![Screenshot from 2023-11-07 14-49-05](https://github.com/ekomoku/ekom-pbl/assets/66005935/784f8bfc-fe2c-4306-ae84-fae1fe19b421)
+
+
+![Screenshot from 2023-11-07 14-49-59](https://github.com/ekomoku/ekom-pbl/assets/66005935/20757d44-4eaa-4443-85a4-f18479a87284)
+
+
+![Screenshot from 2023-11-07 14-50-29](https://github.com/ekomoku/ekom-pbl/assets/66005935/a9accbf1-ee28-4552-8965-03e941061f6b)
+
+
+![Screenshot from 2023-11-07 14-51-06](https://github.com/ekomoku/ekom-pbl/assets/66005935/90b7849d-2800-4310-83d6-d60906156719)
+
+
+![Screenshot from 2023-11-07 14-51-37](https://github.com/ekomoku/ekom-pbl/assets/66005935/1728e891-c6dc-4672-bd0c-add3030b4c14)

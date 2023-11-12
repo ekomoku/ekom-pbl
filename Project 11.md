@@ -84,6 +84,9 @@ On VS Code, Goto > Extensions and search for 'Remote Development' then install i
 4. Clone down your ansible-config-mgt repo to your Jenkins-Ansible instance
 In VS code, click explorer, click 'clone repository', in the search bar, enter/select the github directory of for the repo from the dropdown.
 
+
+Note: if you can't find the 'Clone Repository' option on your VS Code, it means Git has not been installed, so goto Google, download and install Git, restart VS Code and the 'Clone Repository' option should be there.
+
 ~~~
 git clone <ansible-config-mgt repo link>
 ~~~

@@ -190,13 +190,15 @@ For Windows users –  https://www.youtube.com/watch?v=OplGrY74qog
 For Linux users –  https://www.youtube.com/watch?v=OplGrY74qog
 
 
-To add the private key, open terminal on your PC, cd into the directory/folder where your private key is (e.g Downloads folder) and run the following commands
+To add the private key, open terminal on your PC, cd into the directory or folder where your private key is (e.g Downloads folder) and run the following commands
 
 
 ~~~
 eval `ssh-agent -s`
-ssh-add <path-to-private-key>
+ssh-add devopskeypair.pem
 ~~~
+
+where 'devopskeypair.pem' is the keypair used 
 
 
 #### Note: The above commands becomes
@@ -215,7 +217,7 @@ ssh-add -l
 ~~~
 
 
-Now, ssh into your Jenkins-Ansible server using ssh-agent
+Now, still under the local terminal, cd to the folder where your keypair is stored (e.g Downloads)  ssh into your Jenkins-Ansible server using ssh-agent
 
 
 

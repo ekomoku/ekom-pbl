@@ -87,6 +87,16 @@ In VS code, click explorer, click 'clone repository', in the search bar, enter/s
 
 Note: if you can't find the 'Clone Repository' option on your VS Code, it means Git has not been installed, so goto Google, download and install Git, restart VS Code and the 'Clone Repository' option should be there.
 
+
+![Screenshot from 2023-11-12 14-39-58](https://github.com/ekomoku/ekom-pbl/assets/66005935/04e07e41-c4bb-4954-bee8-5b39ba0a403d)
+
+On VS Code, confrim the branch by running
+
+~~~
+git branch
+~~~
+
+
 ~~~
 git clone <ansible-config-mgt repo link>
 ~~~
@@ -101,14 +111,32 @@ OR clone from VS code
 
 ~~~
 git status
-git checkout branch -b prj-11
+git checkout -b prj-11
 ~~~
+
+
+![Screenshot from 2023-11-12 14-50-19](https://github.com/ekomoku/ekom-pbl/assets/66005935/8bf28a62-e57e-4b03-bed8-0fc4742e32aa)
 
 
 Tip: Give your branches descriptive and comprehensive names, for example, if you use Jira or Trello as a project management tool – include ticket number (e.g. PRJ-145) in the name of your branch and add a topic and a brief description what this branch is about – a bugfix, hotfix, feature, release (e.g. feature/prj-145-lvm)
 
 2. Checkout the newly created feature branch to your local machine and start building your code and directory structure
-3. Create a directory and name it playbooks – it will be used to store all your playbook files.
+
+Check the branch you're working on by runnung the command
+
+
+~~~
+git branch
+~~~
+
+![Screenshot from 2023-11-12 14-55-07](https://github.com/ekomoku/ekom-pbl/assets/66005935/b58f1021-1930-4e6c-80e8-c5851f60d484)
+
+
+The above picture shows we are working in the newly created branch (proj-11)
+
+
+
+4. Create a directory and name it playbooks – it will be used to store all your playbook files.
 
 ~~~
 mkdir playbooks

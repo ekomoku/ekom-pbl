@@ -226,6 +226,14 @@ ssh -A <server_name>@<public_IP_address_of_your_server>
 ~~~
 
 
+After login, run the following to persist the key on the install
+
+
+~~~
+ssh-add -l
+~~~
+
+
 Also notice, that your Load Balancer user is ubuntu and user for RHEL-based servers is ec2-user.
 #### Note: server name can be ubutu( for ubuntu servers), ec2-user(for RHEL servers), etc.
 

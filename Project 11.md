@@ -394,7 +394,7 @@ IdentifyFile : is the path to where the private key is located
 
 
 ~~~
-Host Jenkins - Ansible
+Host Jenkins-Ansible
     HostName 13.41.159.207
     User ubuntu
     IdentityFile /home/ekom/Downloads/jenkinskeypair.pem
@@ -405,7 +405,7 @@ Host Jenkins - Ansible
 ~~~
 
 
-Then on VS code, click 'Open a Remote Window' on the lower left corner of the window. select 'connect to a host'. At this point, you should see your host listed. Select and connect to it.
+Then on VS code, click 'Open a Remote Window' on the lower left corner of the window. select 'connect current window to a host'. At this point, you should see your host listed. Select and connect to it.
 
 
 ==============================

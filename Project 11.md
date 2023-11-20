@@ -379,12 +379,8 @@ Once your code changes appear in master branch – Jenkins will do its job and s
 Now, it is time to execute ansible-playbook command and verify if your playbook actually works:
 
 
-~~~
-cd ansible-config-mgt
-ansible-playbook -i inventory/dev.yml playbooks/common.yml
-~~~
+On the VS code, goto the lower left corner of the window, click 'Open a Remote Window' ( we want to connect to a remote host which is the 'Jenkins-Ansible' server on AWS)
 
-On the VS code, goto the lower left corner of the window, click 'Open a Remote Window'
 
 
 ![Screenshot from 2023-02-11 10-01-58](https://user-images.githubusercontent.com/66005935/218249837-a6388735-d1b0-403f-8800-206dfc83f85e.png)

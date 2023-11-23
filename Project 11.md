@@ -439,4 +439,54 @@ git push origin prj-11
 
 #### Then proceed to github to create merge request and merge. Note: in the above codes, common.yml is the file that is edited inside the folder playbooks and the current branch is prj-11.
 
+# Challenges Faced
 
+After connecting to the remote server (i.e Jenkins-Ansible server) on VS code and running the paybook using the command above, I was having fatal errors, all my servers were not reachable from the Jenkins-Ansible server and as such the playbook couldn't run at all.
+
+# Troubleshooting and Resolution
+
+To run playbook successfully follow the steps below;
+
+After creating the inventory( dev.yml, prod.yml, staging.yml etc) and playbooks (common.yml) and push to gitgub and get the latest build on Jenkins.
+
+On VS code, connect the the remote server using the method as explained above. 
+
+On your local machine, open terminal and cd into the folder where your keypair is stored, e.g Downloads folder and copy the key
+
+
+~~
+cd Downloads
+cat devopskeypair.pem
+~~~
+
+Goto the remote server, create a file and name it exactly as it is on the local machine e.g devopskeypair.pem, then paste the key you copied from the local machine. Run the command below
+
+~~~
+sudo chmod 700 devopskeypair.pem
+eval `ssh-agent -s`
+ssh-add devopskeypair.pem
+sudo vi /etc/ansible/ansible.cfg  ( look for #host_key_checking = False and remove the comment(#)
+~~~
+
+
+![Screenshot from 2023-11-23 22-39-55](https://github.com/ekomoku/ekom-pbl/assets/66005935/be29a1da-c5b4-48af-b43a-3fd0cb9b1c21)
+
+
+
+![Screenshot from 2023-11-23 22-35-35](https://github.com/ekomoku/ekom-pbl/assets/66005935/f39a13ea-222f-4039-b742-23a2cc446b82)
+
+
+![Screenshot from 2023-11-23 22-44-16](https://github.com/ekomoku/ekom-pbl/assets/66005935/658b9a64-c553-4329-b494-ed4c1d9d3703)
+
+
+![Screenshot from 2023-11-23 22-36-25](https://github.com/ekomoku/ekom-pbl/assets/66005935/60b325c2-0a66-4805-af55-4f2c810bab89)
+
+
+Then run the playbook successfully using the command
+
+~~~
+ansible-playbook -i /var/lib/jenkins/jobs/ansible/builds/<build-number>/archive/inventory/dev.yml /var/lib/jenkins/jobs/ansible/builds/<build-number>/archive/playbooks/common.yml
+~~~
+
+
+# THE END

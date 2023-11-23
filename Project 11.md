@@ -430,6 +430,7 @@ ansible-playbook -i /var/lib/jenkins/jobs/ansible/builds/<build-number>/archive/
 
 GIT commands: after making changes to your file, push with the following commands 
 
+
 ~~~
 git add  playbooks/common.yml
 git commit -m "edited common.yml"
@@ -454,12 +455,17 @@ On VS code, connect the the remote server using the method as explained above.
 On your local machine, open terminal and cd into the folder where your keypair is stored, e.g Downloads folder and copy the key
 
 
+
 ~~
 cd Downloads
 cat devopskeypair.pem
 ~~~
 
+
+
 Goto the remote server, create a file and name it exactly as it is on the local machine e.g devopskeypair.pem, then paste the key you copied from the local machine. Run the command below
+
+
 
 ~~~
 sudo chmod 700 devopskeypair.pem
@@ -467,6 +473,7 @@ eval `ssh-agent -s`
 ssh-add devopskeypair.pem
 sudo vi /etc/ansible/ansible.cfg  ( look for #host_key_checking = False and remove the comment(#)
 ~~~
+
 
 
 ![Screenshot from 2023-11-23 22-39-55](https://github.com/ekomoku/ekom-pbl/assets/66005935/be29a1da-c5b4-48af-b43a-3fd0cb9b1c21)
@@ -484,9 +491,13 @@ sudo vi /etc/ansible/ansible.cfg  ( look for #host_key_checking = False and remo
 
 Then run the playbook successfully using the command
 
+
+
 ~~~
 ansible-playbook -i /var/lib/jenkins/jobs/ansible/builds/<build-number>/archive/inventory/dev.yml /var/lib/jenkins/jobs/ansible/builds/<build-number>/archive/playbooks/common.yml
 ~~~
 
 
-# THE END
+
+
+#THE END

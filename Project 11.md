@@ -456,7 +456,7 @@ On your local machine, open terminal and cd into the folder where your keypair i
 
 
 
-~~
+~~~
 cd Downloads
 cat devopskeypair.pem
 ~~~
@@ -471,7 +471,7 @@ Goto the remote server, create a file and name it exactly as it is on the local 
 sudo chmod 700 devopskeypair.pem
 eval `ssh-agent -s`
 ssh-add devopskeypair.pem
-sudo vi /etc/ansible/ansible.cfg  ( look for #host_key_checking = False and remove the comment(#)
+sudo vi /etc/ansible/ansible.cfg  look for #host_key_checking = False and remove the comment
 ~~~
 
 
@@ -487,6 +487,7 @@ sudo vi /etc/ansible/ansible.cfg  ( look for #host_key_checking = False and remo
 
 
 ![Screenshot from 2023-11-23 22-36-25](https://github.com/ekomoku/ekom-pbl/assets/66005935/60b325c2-0a66-4805-af55-4f2c810bab89)
+
 
 
 Then run the playbook successfully using the command

@@ -493,6 +493,13 @@ sudo vi /etc/ansible/ansible.cfg  look for #host_key_checking = False and remove
 Then run the playbook successfully using the command
 
 
+The dev.yml file can also be written as shwon below;
+
+
+
+![Screenshot from 2023-11-25 21-37-23](https://github.com/ekomoku/ekom-pbl/assets/66005935/72d0ae94-9874-4377-ac19-89d0720ff25d)
+
+
 
 ~~~
 ansible-playbook -i /var/lib/jenkins/jobs/ansible/builds/<build-number>/archive/inventory/dev.yml /var/lib/jenkins/jobs/ansible/builds/<build-number>/archive/playbooks/common.yml

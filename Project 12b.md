@@ -28,9 +28,17 @@ sudo mkdir /home/ubuntu/ansible-config-artifact
 
 ```
 
-2. Change permissions to this directory, so Jenkins could save files there - `chmod -R 0777 /home/ubuntu/ansible-config-artifact`
+2. Change permissions to this directory, so Jenkins could save files there -
 
-3. Go to Jenkins web console -> Manage Jenkins -> Manage Plugins -> on `Available` tab search for `Copy Artifact` and install this plugin without restarting Jenkins
+
+
+~~
+sudo chmod -R 0777 ansible-config-artifact
+~~
+
+
+
+4. Go to Jenkins web console -> Manage Jenkins -> Manage Plugins -> on `Available` tab search for `Copy Artifact` and install this plugin without restarting Jenkins
 
 <img src="https://darey-io-nonprod-pbl-projects.s3.eu-west-2.amazonaws.com/project12/copy_artifact_install.png" width="936px" height="550px">
 

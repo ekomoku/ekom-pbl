@@ -456,6 +456,10 @@ On your local machine, open terminal and cd into the folder where your keypair i
 
 
 
+Also, afetr you've connected to the remote server, clone the 'ansible-config' repo to the Jenkins-Ansible server if you've not done so already.
+
+
+
 ~~~
 cd Downloads
 cat devopskeypair.pem

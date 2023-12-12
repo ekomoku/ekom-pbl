@@ -37,18 +37,54 @@ sudo chmod -R 0777 ansible-config-artifact
 ~~
 
 
+![Screenshot from 2023-12-12 16-35-13](https://github.com/ekomoku/ekom-pbl/assets/66005935/9f5285c3-4aeb-4acd-b0e4-bdf1f08f1279)
+
+
 
 4. Go to Jenkins web console -> Manage Jenkins -> Manage Plugins -> on `Available` tab search for `Copy Artifact` and install this plugin without restarting Jenkins
+
+
+![Screenshot from 2023-12-12 16-37-48](https://github.com/ekomoku/ekom-pbl/assets/66005935/c4da2390-cea8-4238-88c0-d7a226abfd7a)
+
+
+
+![Screenshot from 2023-12-12 16-40-30](https://github.com/ekomoku/ekom-pbl/assets/66005935/54fb9124-fcb2-4371-bcac-0ee7bf449891)
+
+
+
 
 <img src="https://darey-io-nonprod-pbl-projects.s3.eu-west-2.amazonaws.com/project12/copy_artifact_install.png" width="936px" height="550px">
 
 4. Create a new Freestyle project (you have done it in [Project 9](https://professional-pbl.darey.io/en/latest/project9.html)) and name it `save_artifacts`.
+
+
+![Screenshot from 2023-12-12 16-42-20](https://github.com/ekomoku/ekom-pbl/assets/66005935/4af00c05-ece6-40c5-87cb-d3f1c6c201e0)
+
+
 
 5. This project will be triggered by completion of your existing `ansible` project. Configure it accordingly:
 
 ![](https://darey-io-nonprod-pbl-projects.s3.eu-west-2.amazonaws.com/project12/copy_artifact_trigger.png)
 <img src="https://darey-io-nonprod-pbl-projects.s3.eu-west-2.amazonaws.com/project11/ansible_version.png" width="936px" height="550px">
 **Note**: You can configure number of builds to keep in order to save space on the server, for example, you might want to keep only last 2 or 5 build results. You can also make this change to your `ansible` job.
+
+
+![Screenshot from 2023-12-12 16-44-13](https://github.com/ekomoku/ekom-pbl/assets/66005935/ca991e78-9888-4465-b9c8-824be9f5e9c1)
+
+
+
+![Screenshot from 2023-12-12 16-46-52](https://github.com/ekomoku/ekom-pbl/assets/66005935/6e6a516f-af96-4221-bfd5-0084e1645187)
+
+
+
+![Screenshot from 2023-12-12 16-48-18](https://github.com/ekomoku/ekom-pbl/assets/66005935/5b3a70e0-ca3d-4009-837b-9b9b407a8592)
+
+
+
+![Screenshot from 2023-12-12 16-50-11](https://github.com/ekomoku/ekom-pbl/assets/66005935/eda995bd-9f8c-4c21-b9a4-4f7d88942a41)
+
+
+
 
 6. The main idea of `save_artifacts` project is to save artifacts into `/home/ubuntu/ansible-config-artifact` directory. To achieve this, create a `Build` step and choose `Copy artifacts from other project`, specify `ansible` as a source project and `/home/ubuntu/ansible-config-artifact` as a target directory.
 

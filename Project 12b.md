@@ -64,8 +64,7 @@ sudo chmod -R 0777 ansible-config-artifact
 
 5. This project will be triggered by completion of your existing `ansible` project. Configure it accordingly:
 
-![](https://darey-io-nonprod-pbl-projects.s3.eu-west-2.amazonaws.com/project12/copy_artifact_trigger.png)
-<img src="https://darey-io-nonprod-pbl-projects.s3.eu-west-2.amazonaws.com/project11/ansible_version.png" width="936px" height="550px">
+
 **Note**: You can configure number of builds to keep in order to save space on the server, for example, you might want to keep only last 2 or 5 build results. You can also make this change to your `ansible` job.
 
 

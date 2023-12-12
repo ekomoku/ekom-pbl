@@ -101,6 +101,19 @@ Then click on apply and save.
 
 7. Test your set up by making some change in README.MD file inside your `ansible-config-mgt` repository (right inside `master` branch).
 
+
+![Screenshot from 2023-12-12 17-46-15](https://github.com/ekomoku/ekom-pbl/assets/66005935/abebd85a-7423-48c8-82c6-9112f339e89e)
+
+
+
+![Screenshot from 2023-12-12 17-46-55](https://github.com/ekomoku/ekom-pbl/assets/66005935/0936cc37-3182-4ef9-9af8-8810023798a2)
+
+
+
+![Screenshot from 2023-12-12 17-47-37](https://github.com/ekomoku/ekom-pbl/assets/66005935/61db25c7-c6d4-485e-8d4d-c13a3979179e)
+
+
+
 If both Jenkins jobs have completed one after another - you shall see your files inside `/home/ubuntu/ansible-config-artifact` directory and it will be updated with every commit to your `master` branch.
 
 Now your Jenkins pipeline is more neat and clean.
@@ -117,11 +130,28 @@ Most Ansible users learn the one-file approach first. However, breaking tasks up
 
 Let see code re-use in action by importing other playbooks.
 
+
+Before starting to refactor the code, We pull down the latest code from main branch and creat a new branch refactor.
+
+
+![Screenshot from 2023-12-12 17-55-14](https://github.com/ekomoku/ekom-pbl/assets/66005935/fb2b76c0-19bb-482c-80e4-11eda21e8af1)
+
+
+
 1. Within `playbooks` folder, create a new file and name it `site.yml` - *This file will now be considered as an entry point into the entire infrastructure configuration*. Other playbooks will be included here as a reference. In other words, `site.yml` will become a parent to all other playbooks that will be developed. Including `common.yml` that you created previously. *Dont worry, you will understand more what this means shortly*.
 
 2. Create a new folder in root of the repository and name it `static-assignments`. The **static-assignments** folder is where all other children playbooks will be stored. This is merely for easy organization of your work. It is not an Ansible specific concept, therefore you can choose how you want to organize your work. You will see why the folder name has a prefix of **static** very soon. For now, just follow along.
 
+
+![Screenshot from 2023-12-12 18-01-26](https://github.com/ekomoku/ekom-pbl/assets/66005935/9a746e89-5230-4544-9051-c1e07b3a487f)
+
+
 3. Move `common.yml` file into the newly created `static-assignments` folder.
+
+
+![Screenshot from 2023-12-12 18-04-44](https://github.com/ekomoku/ekom-pbl/assets/66005935/586ae7e1-f082-415a-ba6a-b8d144f3dcfd)
+
+
 
 4. Inside `site.yml` file, import `common.yml` playbook.
 
@@ -130,6 +160,11 @@ Let see code re-use in action by importing other playbooks.
 - hosts: all
 - import_playbook: ../static-assignments/common.yml
 ```
+
+
+![Screenshot from 2023-12-12 18-10-58](https://github.com/ekomoku/ekom-pbl/assets/66005935/5d8bcd91-58d7-46a4-97bc-c9f0c57a39b4)
+
+
 
 The code above uses built in [import_playbook](https://docs.ansible.com/ansible/latest/collections/ansible/builtin/import_playbook_module.html) Ansible module.
 
@@ -150,6 +185,15 @@ Your folder structure should look like this;
 5. Run `ansible-playbook` command against the `dev` environment
 
 Since you need to apply some tasks to your `dev` servers and `wireshark` is already installed - you can go ahead and create another playbook under `static-assignments` and name it `common-del.yml`. In this playbook, configure deletion of `wireshark` utility.
+
+
+
+![Screenshot from 2023-12-12 18-31-26](https://github.com/ekomoku/ekom-pbl/assets/66005935/b3fdc7c2-96d0-4152-bcbe-a12416455167)
+
+
+
+In the static-assignment/common-del.yml we paste the snippet
+
 
 ```
 ---
@@ -179,7 +223,86 @@ Since you need to apply some tasks to your `dev` servers and `wireshark` is alre
       autoclean: yes
 ```
 
-update `site.yml` with `- import_playbook: ../static-assignments/common-del.yml` instead of `common.yml` and run it against `dev` servers:
+
+![Screenshot from 2023-12-12 18-35-02](https://github.com/ekomoku/ekom-pbl/assets/66005935/0efaeef3-9bf9-4529-b1d4-c0c59d601289)
+
+
+
+
+Update playbooks/site.yml with the following snippet replacing common.yml with common-del.yml.
+
+
+
+
+~~~
+---
+- hosts: all
+- import_playbook: ../static-assignments/common-del.yml
+~~~
+
+
+
+![Screenshot from 2023-12-12 18-44-09](https://github.com/ekomoku/ekom-pbl/assets/66005935/e8c74b47-a10f-4453-bdde-d2275aaa9db8)
+
+
+
+
+To push the codes to github and merge to the main branch
+
+We run the commands
+
+$ git status
+
+$ git add .
+
+
+
+![Screenshot from 2023-12-12 18-48-14](https://github.com/ekomoku/ekom-pbl/assets/66005935/d70e33f2-ef50-4914-bff1-a12353f21ba9)
+
+
+then
+
+$ git commit -m "<commit-message>"
+
+then
+
+$ git push origin refactor
+
+
+
+![Screenshot from 2023-12-12 18-51-52](https://github.com/ekomoku/ekom-pbl/assets/66005935/6557de6c-5f4a-466c-8ad9-7e7e92546dc0)
+
+
+
+We then go to the github and create a pull request
+
+
+
+![Screenshot from 2023-12-12 18-54-03](https://github.com/ekomoku/ekom-pbl/assets/66005935/88f8a68a-c993-4be9-8459-960303f5a607)
+
+
+
+![Screenshot from 2023-12-12 18-55-45](https://github.com/ekomoku/ekom-pbl/assets/66005935/c56678db-d046-4c31-8933-f9935d4b4889)
+
+
+
+We can see the Jenkins build as soon as the code is merged to the main branch
+
+
+
+![Screenshot from 2023-12-12 18-57-30](https://github.com/ekomoku/ekom-pbl/assets/66005935/3b44a171-58bc-4988-af97-fb865d51f8c2)
+
+
+
+The artifact is saved in the ansible-config-artifact directory in the jenkins server.
+
+Then run the playbook
+
+$ ansible-playbook ansible-config-artifact/playbooks/site.yml -i ansible-config-artifact/inventory/dev.yml 
+
+
+
+
 
 ```
 cd /home/ubuntu/ansible-config-mgt/

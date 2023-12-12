@@ -72,8 +72,16 @@ sudo chmod -R 0777 ansible-config-artifact
 ![Screenshot from 2023-12-12 16-44-13](https://github.com/ekomoku/ekom-pbl/assets/66005935/ca991e78-9888-4465-b9c8-824be9f5e9c1)
 
 
+We update the Source Code Management section.
+
+
 
 ![Screenshot from 2023-12-12 16-46-52](https://github.com/ekomoku/ekom-pbl/assets/66005935/6e6a516f-af96-4221-bfd5-0084e1645187)
+
+
+
+
+6. The main idea of `save_artifacts` project is to save artifacts into `/home/ubuntu/ansible-config-artifact` directory. To achieve this, create a `Build` step and choose `Copy artifacts from other project`, specify `ansible` as a source project and `/home/ubuntu/ansible-config-artifact` as a target directory.
 
 
 
@@ -85,8 +93,9 @@ sudo chmod -R 0777 ansible-config-artifact
 
 
 
+Then click on apply and save.
 
-6. The main idea of `save_artifacts` project is to save artifacts into `/home/ubuntu/ansible-config-artifact` directory. To achieve this, create a `Build` step and choose `Copy artifacts from other project`, specify `ansible` as a source project and `/home/ubuntu/ansible-config-artifact` as a target directory.
+
 
 ![](https://darey-io-nonprod-pbl-projects.s3.eu-west-2.amazonaws.com/project12/copy_artifact_build.png)
 <img src="https://darey-io-nonprod-pbl-projects.s3.eu-west-2.amazonaws.com/project11/ansible_version.png" width="936px" height="550px">

@@ -334,17 +334,73 @@ We have our nice and clean `dev` environment, so let us put it aside and configu
 
 There are two ways how you can create this folder structure:
 
+
+Checkout to a new branch and name it 'uat'
+
+
 - Use an Ansible utility called `ansible-galaxy` inside `ansible-config-mgt/roles` directory (you need to create `roles` directory upfront)
+
+
 ```
 mkdir roles
 cd roles
-ansible-galaxy init webserver
 ```
+
+
+![Screenshot from 2023-12-13 12-28-27](https://github.com/ekomoku/ekom-pbl/assets/66005935/51274be6-9766-45d7-9a56-f23b3590b97a)
+
+
+We edit the roles path: goto the Jenkins-Ansible server and run the code below;
+
+
+~~~
+$ sudo vi /etc/ansible/ansible.cfg
+~~~
+
+
+Then search for roles path ; replace the path with /home/ubuntu/ansible-config11/roles
+
+
+![Screenshot from 2023-12-13 12-59-05](https://github.com/ekomoku/ekom-pbl/assets/66005935/347c5a13-8933-4385-b9aa-530d74df2a99)
+
+Then run
+
+
+~~~
+$ sudo apt install ansible-core  # in the ansible-config11 directory
+ansible-galaxy init webserver
+~~~
+
+
+![Screenshot from 2023-12-13 13-39-40](https://github.com/ekomoku/ekom-pbl/assets/66005935/18c5e88d-99d5-4c02-b50e-e2f31dab9902)
+
+
+
+![Screenshot from 2023-12-13 13-49-10](https://github.com/ekomoku/ekom-pbl/assets/66005935/e19404d2-7e55-473c-9ac4-b611ff47619d)
+
+
+
+
+
+To install tree
+
+~~~
+$ sudo apt install tree -y
+~~~
+
+
+
+![Screenshot from 2023-12-13 14-10-26](https://github.com/ekomoku/ekom-pbl/assets/66005935/392e5898-614d-4377-9e77-9335975f1e2f)
+
+
+
 - Create the directory/files structure manually
 
 **Note:** You can choose either way, but since you store all your codes in GitHub, it is recommended to create folders and files there rather than locally on `Jenkins-Ansible` server.
 
 The entire folder structure should look like below, but if you create it manually - you can skip creating `tests`, `files`, and `vars` or remove them if you used `ansible-galaxy`
+
+
 
 ```
 └── webserver
@@ -366,7 +422,15 @@ The entire folder structure should look like below, but if you create it manuall
         └── main.yml
 ```
 
+
+![Screenshot from 2023-12-13 13-44-35](https://github.com/ekomoku/ekom-pbl/assets/66005935/d09837db-30a9-4846-8d8e-26a72da49aad)
+
+
+
+
+
 After removing unnecessary directories and files, the `roles` structure should look like this
+
 
 ```
 └── webserver
@@ -382,14 +446,16 @@ After removing unnecessary directories and files, the `roles` structure should l
     └── templates
 ```
 
+
+
+![Screenshot from 2023-12-13 14-27-15](https://github.com/ekomoku/ekom-pbl/assets/66005935/91619343-5ed6-4242-afcb-debe5a08e3e3)
+
+
+
+
 3. Update your inventory `ansible-config-mgt/inventory/uat.yml` file with IP addresses of your 2 UAT Web servers
 
-**NOTE:** Ensure you are using ssh-agent to ssh into the Jenkins-Ansible instance just as you have done in project 11;
 
-To learn how to setup SSH agent and connect VS Code to your Jenkins-Ansible instance, please see this video:
-
-- For Windows users - [ssh-agent on windows](https://youtu.be/OplGrY74qog)
-- For Linux users - [ssh-agent on linux](https://youtu.be/OplGrY74qog)
 
 ```
 [uat-webservers]
@@ -397,7 +463,44 @@ To learn how to setup SSH agent and connect VS Code to your Jenkins-Ansible inst
 <Web2-UAT-Server-Private-IP-Address> ansible_ssh_user='ec2-user'
 ```
 
+
+![Screenshot from 2023-12-13 13-53-53](https://github.com/ekomoku/ekom-pbl/assets/66005935/9e06ab3a-eec2-4a2d-aebe-3c617ae4ca35)
+
+
+
+![Screenshot from 2023-12-13 14-32-08](https://github.com/ekomoku/ekom-pbl/assets/66005935/2f0bb1b8-062f-4d59-9670-c81eab69a70b)
+
+
+
+
 4. In `/etc/ansible/ansible.cfg` file uncomment `roles_path` string and provide a full path to your roles directory `roles_path    = /home/ubuntu/ansible-config-mgt/roles`, so Ansible could know where to find configured roles.
+
+
+Update the jenkins /etc/hosts directory with the UAT webservers.
+
+Goto Jenkins-Ansible server and run the command below;
+
+
+~~~
+$ sudo vi /etc/hosts
+~~~
+
+
+![Screenshot from 2023-12-13 14-38-38](https://github.com/ekomoku/ekom-pbl/assets/66005935/a73e2431-42cc-4c7b-8533-b0683e9e3d2d)
+
+
+
+![Screenshot from 2023-12-13 14-42-05](https://github.com/ekomoku/ekom-pbl/assets/66005935/f459f8c3-a509-421b-ad2f-352828c8f1e7)
+
+
+
+Still on the Jenkins-Ansible server, Go to /etc/ansible/ansible.cfg and scroll down to 'privilege_escalation' and remove the comment "become=True"
+
+
+
+![Screenshot from 2023-12-13 14-52-44](https://github.com/ekomoku/ekom-pbl/assets/66005935/5caed4c4-6828-4663-b798-ff42f32d5bcf)
+
+
 
 5. It is time to start adding some logic to the webserver role. Go into `tasks` directory, and within the `main.yml` file, start writing configuration tasks to do the following:
 
@@ -446,9 +549,25 @@ Your `main.yml` may consist of following tasks:
     state: absent
 ```
 
+
+
+![Screenshot from 2023-12-13 15-00-19](https://github.com/ekomoku/ekom-pbl/assets/66005935/9b841ca1-af77-4d93-bf5b-a0e3f5d46465)
+
+
+
+
 #### Step 4 - Reference 'Webserver' role 
 
 Within the `static-assignments` folder, create a new assignment for **uat-webservers** `uat-webservers.yml`. This is where you will reference the role.
+
+
+
+![Screenshot from 2023-12-13 15-15-41](https://github.com/ekomoku/ekom-pbl/assets/66005935/eeae1da3-00b5-4d6a-b2ea-f802a6e4c5fc)
+
+
+
+Update the uat-webservers.yml file
+
 
 ```
 ---
@@ -456,6 +575,12 @@ Within the `static-assignments` folder, create a new assignment for **uat-webser
   roles:
      - webserver
 ```
+
+
+
+![Screenshot from 2023-12-13 15-18-15](https://github.com/ekomoku/ekom-pbl/assets/66005935/034ba861-8df4-49a2-bc0e-2c7830cb51a4)
+
+
 
 Remember that the entry point to our ansible configuration is the `site.yml` file. Therefore, you need to refer your `uat-webservers.yml` role inside `site.yml`.
 
@@ -471,11 +596,49 @@ So, we should have this in `site.yml`
 
 ```
 
+
+
+![Screenshot from 2023-12-13 15-22-34](https://github.com/ekomoku/ekom-pbl/assets/66005935/51a2bda3-e25e-4524-a026-7c126c4d07db)
+
+
+
+
 #### Step 5 - Commit & Test
 
 Commit your changes, create a Pull Request and merge them to `master` branch, make sure webhook triggered two consequent Jenkins jobs, they ran successfully and copied all the files to your `Jenkins-Ansible` server into `/home/ubuntu/ansible-config-mgt/` directory.
 
+
+
+![Screenshot from 2023-12-13 15-28-35](https://github.com/ekomoku/ekom-pbl/assets/66005935/35149568-98aa-45dc-bfc6-ed9ffbd80024)
+
+
+
+
+![Screenshot from 2023-12-13 15-30-05](https://github.com/ekomoku/ekom-pbl/assets/66005935/7fba0d19-d9b6-4092-9d35-9d0c23b98116)
+
+
+
+![Screenshot from 2023-12-13 15-31-19](https://github.com/ekomoku/ekom-pbl/assets/66005935/61d2add4-e4e2-4511-9017-415b3eec891c)
+
+
+
+![Screenshot from 2023-12-13 15-33-16](https://github.com/ekomoku/ekom-pbl/assets/66005935/6120a060-96c4-4576-af95-397f04f5728c)
+
+
+
+
 Now run the playbook against your `uat` inventory and see what happens:
+
+
+
+
+~~~
+$ ansible-playbook ansible-config-artifact/playbooks/site.yml -i ansible-config-artifact/inventory/uat.yml
+~~~
+
+
+
+
 
 **NOTE:** Before running your playbook, ensure you have tunneled into your `Jenkins-Ansible` server via ssh-agent
 For windows users, see this [video](https://youtu.be/OplGrY74qog)

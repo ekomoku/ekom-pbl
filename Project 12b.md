@@ -224,7 +224,8 @@ In the static-assignment/common-del.yml we paste the snippet
 ```
 
 
-![Screenshot from 2023-12-12 18-35-02](https://github.com/ekomoku/ekom-pbl/assets/66005935/0efaeef3-9bf9-4529-b1d4-c0c59d601289)
+![Screenshot from 2023-12-13 11-31-56](https://github.com/ekomoku/ekom-pbl/assets/66005935/e21e9e90-c213-46b7-a813-6f8659e91100)
+
 
 
 
@@ -298,19 +299,25 @@ The artifact is saved in the ansible-config-artifact directory in the jenkins se
 
 Then run the playbook
 
-$ ansible-playbook ansible-config-artifact/playbooks/site.yml -i ansible-config-artifact/inventory/dev.yml 
+~~~
+$ ansible-playbook ansible-config-artifact/playbooks/site.yml -i ansible-config-artifact/inventory/dev.yml
+~~~
+
+
+
+![Screenshot from 2023-12-13 11-34-57](https://github.com/ekomoku/ekom-pbl/assets/66005935/4bc69e1a-bae5-4016-a370-ae756bfb74f2)
 
 
 
 
-
-```
-cd /home/ubuntu/ansible-config-mgt/
-
-ansible-playbook -i inventory/dev.yml playbooks/site.yaml
-```
 
 Make sure that `wireshark` is deleted on all the servers by running `wireshark --version`
+
+
+![Screenshot from 2023-12-13 11-39-15](https://github.com/ekomoku/ekom-pbl/assets/66005935/131e103c-e5b2-4f5b-95f0-027fa2df7c57)
+
+
+
 
 Now you have learned how to use `import_playbooks` module and you have a ready solution to install/delete packages on multiple servers with just one command.
 

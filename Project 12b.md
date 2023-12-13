@@ -358,7 +358,7 @@ $ sudo vi /etc/ansible/ansible.cfg
 ~~~
 
 
-Then search for roles path ; replace the path with /home/ubuntu/ansible-config11/roles
+Then search for roles path ; replace the path with /home/ubuntu/ansible-config-artifact/roles
 
 
 ![Screenshot from 2023-12-13 12-59-05](https://github.com/ekomoku/ekom-pbl/assets/66005935/347c5a13-8933-4385-b9aa-530d74df2a99)

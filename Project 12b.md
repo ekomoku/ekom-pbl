@@ -637,12 +637,15 @@ $ ansible-playbook ansible-config-artifact/playbooks/site.yml -i ansible-config-
 ~~~
 
 
+![Screenshot from 2023-12-13 23-39-01](https://github.com/ekomoku/ekom-pbl/assets/66005935/ee4048e0-2185-4805-9a33-d7eb2287d4fd)
 
 
 
-**NOTE:** Before running your playbook, ensure you have tunneled into your `Jenkins-Ansible` server via ssh-agent
-For windows users, see this [video](https://youtu.be/OplGrY74qog)
-For Linux users, see this [video](https://www.youtube.com/watch?v=RRRQLgAfcJw&list=PLtPuNR8I4TvlBxy8IUXUDnmtlKawRsWH_&index=15)
+
+![Screenshot from 2023-12-13 23-40-33](https://github.com/ekomoku/ekom-pbl/assets/66005935/6d4c9d4c-c8b8-41e3-a326-d3ac88a91838)
+
+
+
 
 ```
 cd /home/ubuntu/ansible-config-mgt

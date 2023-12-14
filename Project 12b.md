@@ -550,6 +550,15 @@ Your `main.yml` may consist of following tasks:
 ```
 
 
+For the repo, I used https://github.com/dybran/tooling.git
+
+
+
+![Screenshot from 2023-12-14 16-01-22](https://github.com/ekomoku/ekom-pbl/assets/66005935/0bdf1d3e-199a-431d-992e-74f62fae42b8)
+
+
+
+
 
 ![Screenshot from 2023-12-13 15-00-19](https://github.com/ekomoku/ekom-pbl/assets/66005935/9b841ca1-af77-4d93-bf5b-a0e3f5d46465)
 
@@ -647,11 +656,6 @@ $ ansible-playbook ansible-config-artifact/playbooks/site.yml -i ansible-config-
 
 
 
-```
-cd /home/ubuntu/ansible-config-mgt
-
-ansible-playbook -i /inventory/uat.yml playbooks/site.yaml
-```
 
 You should be able to see both of your UAT Web servers configured and you can try to reach them from your browser:
 
@@ -660,6 +664,13 @@ You should be able to see both of your UAT Web servers configured and you can tr
 or
 
 `http://<Web1-UAT-Server-Public-IP-or-Public-DNS-Name>/index.php`
+
+
+
+![Screenshot from 2023-12-14 15-57-20](https://github.com/ekomoku/ekom-pbl/assets/66005935/9d6db9a5-1c85-4430-b86e-16da42863602)
+
+
+
 
 Your Ansible architecture now looks like this:
 <img src="https://darey-io-nonprod-pbl-projects.s3.eu-west-2.amazonaws.com/project12/project12_architecture.png" width="936px" height="550px">

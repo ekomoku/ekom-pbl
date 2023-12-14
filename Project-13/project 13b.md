@@ -33,7 +33,30 @@ To submit your work for review and feedback - follow [**this instruction**](http
 
 In your `https://github.com/<your-name>/ansible-config-mgt` GitHub repository start a new branch and call it `dynamic-assignments`.
 
+$ git status
+
+$ git checkout main
+
+
+$ git pull
+
+
+$ git checkout -b dynamic-assignments
+
+
+
+![Screenshot from 2023-12-14 16-49-20](https://github.com/ekomoku/ekom-pbl/assets/66005935/b2755c77-22a1-408d-8773-79306e2219b6)
+
+
+
+
 Create a new folder, name it `dynamic-assignments`. Then inside this folder, create a new file and name it `env-vars.yml`. We will instruct `site.yml` to `include` this playbook later. For now, let us keep building up the structure.
+
+
+
+![Screenshot from 2023-12-14 17-04-11](https://github.com/ekomoku/ekom-pbl/assets/66005935/b0695b99-9b5e-43e0-9b17-ac228de5ad95)
+
+
 
 Your GitHub shall have following structure by now.
 
@@ -81,6 +104,14 @@ Your layout should now look like this.
     └── webservers.yml
 ```
 
+
+
+![Screenshot from 2023-12-14 17-09-12](https://github.com/ekomoku/ekom-pbl/assets/66005935/d871cbd8-ef59-40dd-9407-7f4cd21d4a83)
+
+
+
+
+
 Now paste the instruction below into the `env-vars.yml` file.
 
 ```
@@ -101,6 +132,13 @@ Now paste the instruction below into the `env-vars.yml` file.
       tags:
         - always
 ```
+
+
+
+![Screenshot from 2023-12-14 17-11-38](https://github.com/ekomoku/ekom-pbl/assets/66005935/36be1ff8-de27-4626-a993-ac74dc8fb160)
+
+
+
 
 Notice 3 things to notice here:
 
@@ -142,6 +180,23 @@ Update `site.yml` file to make use of the dynamic assignment. (*At this point, w
 
 ```
 
+
+
+![Screenshot from 2023-12-14 17-18-24](https://github.com/ekomoku/ekom-pbl/assets/66005935/ace2c920-ddcb-48bb-af6b-6960ca29de24)
+
+
+
+At this point, push your update to github and merge the request to main branch
+
+
+
+
+![Screenshot from 2023-12-14 17-37-06](https://github.com/ekomoku/ekom-pbl/assets/66005935/5de71367-dca9-4b2e-a7c7-de8f45c152be)
+
+
+
+
+
 #### Community Roles
 
 Now it is time to create a role for MySQL database - it should install the MySQL package, create a database and configure users. But why should we re-invent the wheel? There are tons of roles that have already been developed by other open source engineers out there. These roles are actually production ready, and dynamic to accomodate most of Linux flavours. With Ansible Galaxy again, we can simply download a ready to use ansible role, and keep going.
@@ -158,17 +213,71 @@ On `Jenkins-Ansible` server make sure that `git` is installed with `git --versio
 
 ```
 git init
-git pull https://github.com/<your-name>/ansible-config-mgt.git
-git remote add origin https://github.com/<your-name>/ansible-config-mgt.git
+git pull https://github.com/<your-name>/ansible-config11.git
+git remote add origin https://github.com/<your-name>/ansible-config11.git
 git branch roles-feature
 git switch roles-feature
 ```
 
+
+
+![Screenshot from 2023-12-14 17-43-34](https://github.com/ekomoku/ekom-pbl/assets/66005935/6a488571-0b84-4712-b836-a401d6e1e39b)
+
+
+
+
+![Screenshot from 2023-12-14 17-43-59](https://github.com/ekomoku/ekom-pbl/assets/66005935/ed16ab7b-59f3-4b7a-9945-ee4265f87947)
+
+
+
+
+![Screenshot from 2023-12-14 17-48-38](https://github.com/ekomoku/ekom-pbl/assets/66005935/995e5a02-c024-4086-af46-5538b8893ac8)
+
+
+
+
+
+Jenkins jobs and webhook will no longer be needed in this project.
+
+cd into roles directory
+
+
 Inside `roles` directory create your new MySQL role with `ansible-galaxy install geerlingguy.mysql` and rename the folder to `mysql`
 
-```
-mv geerlingguy.mysql/ mysql
-```
+
+
+$ cd roles
+
+Create the Mysql role
+
+$ ansible-galaxy init geerlingguy.mysql
+
+
+In the roles directory, create another folder and name it 'mysql'
+
+
+~~~
+cd roles
+mkdir mysql
+~~~
+
+
+
+Rename the Mysql role
+
+
+Still in the roles directory, run the following command
+
+
+$ mv geerlingguy.mysql/ mysql
+
+
+
+
+![Screenshot from 2023-12-14 18-06-45](https://github.com/ekomoku/ekom-pbl/assets/66005935/73d87231-5b71-4e58-b813-ef9157f6be67)
+
+
+
 
 Read `README.md` file, and edit roles configuration to use correct credentials for MySQL required for the `tooling` website. 
 

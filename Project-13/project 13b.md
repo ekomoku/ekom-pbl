@@ -281,6 +281,23 @@ $ mv geerlingguy.mysql/ mysql
 
 Read `README.md` file, and edit roles configuration to use correct credentials for MySQL required for the `tooling` website. 
 
+
+
+![Screenshot from 2023-12-14 18-56-53](https://github.com/ekomoku/ekom-pbl/assets/66005935/2d19a469-f7d4-4cbc-bc34-14b3d73f4307)
+
+
+
+
+![Screenshot from 2023-12-14 18-58-59](https://github.com/ekomoku/ekom-pbl/assets/66005935/65093832-8c3a-49c5-92f3-17fcbbeddb95)
+
+
+
+
+![Screenshot from 2023-12-14 19-00-03](https://github.com/ekomoku/ekom-pbl/assets/66005935/fb31b3f2-9486-4f21-91bb-7296ffb7fa9a)
+
+
+
+
 Now it is time to upload the changes into your GitHub:
 
 ```
@@ -302,6 +319,35 @@ With your experience on Ansible so far you can:
 
 - Decide if you want to develop your own roles, or find available ones from the community
 - Update both `static-assignment` and `site.yml` files to refer the roles
+
+
+Copy the link for the roles from https://galaxy.ansible.com/geerlingguy/nginx
+
+
+
+~~~
+$ sudo ansible-galaxy role install geerlingguy.nginx
+$ sudo ansible-galaxy role install geerlingguy.apache
+~~~
+
+
+
+
+![Screenshot from 2023-12-14 20-45-33](https://github.com/ekomoku/ekom-pbl/assets/66005935/6af5fdde-85af-48e0-8057-5263e9ac5ddd)
+
+
+
+![Screenshot from 2023-12-14 20-47-34](https://github.com/ekomoku/ekom-pbl/assets/66005935/433a0c8b-26e1-4f7b-bdb1-075b4fe6cc04)
+
+
+
+Create the roles in the roles directory.
+
+
+
+![Screenshot from 2023-12-14 20-55-44](https://github.com/ekomoku/ekom-pbl/assets/66005935/4093c48d-9ac5-42d6-84c3-d10d9d8054c7)
+
+
 
 
 ***Important Hints:***

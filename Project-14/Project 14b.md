@@ -210,3 +210,42 @@ Here is our newly created pipeline. It takes the name of your GitHub repository
 
 
 
+
+Inside the ansible-config-mgt-dybran, create a new directory deploy and start a new Jenkinsfile inside the directory.
+
+
+
+
+
+![Screenshot from 2023-12-18 15-45-33](https://github.com/ekomoku/ekom-pbl/assets/66005935/7d1849b3-b53a-4854-9ab8-2d3614fb0bd1)
+
+
+
+
+Add the code snippet below to start building the Jenkinsfile gradually. This pipeline currently has just one stage called Build and the only thing we are doing is using the shell script module to echo Building Stage.
+
+
+
+
+~~~
+pipeline {
+    agent any
+
+  stages {
+    stage('Build') {
+      steps {
+        script {
+          sh 'echo "Building Stage"'
+        }
+      }
+    }
+    }
+}
+~~~
+
+
+
+
+
+
+

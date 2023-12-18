@@ -41,6 +41,12 @@ To setup our jenkins and clone the ansible-config-mgt repository from our github
 
 $ sudo vi jenkins-install.sh
 
+
+
+![Screenshot from 2023-12-18 10-22-25](https://github.com/ekomoku/ekom-pbl/assets/66005935/d06ef955-bd94-40a6-afc8-b8f4c4a81bd7)
+
+
+
 add the bash script below
 
 
@@ -76,6 +82,26 @@ echo "#### Start and Enable Jenkins ####"
 sudo systemctl start jenkins
 sudo systemctl enable jenkins
 ~~~
+
+
+
+![Screenshot from 2023-12-18 10-20-51](https://github.com/ekomoku/ekom-pbl/assets/66005935/eb75cddc-3e1b-4293-aa7d-5ac20caa1e7a)
+
+
+Then we make the script executable by running the command
+
+$ sudo chmod +x jenkins-install.sh
+
+and run the script
+
+$ ./jenkins-install.sh
+
+
+
+
+
+
+
 
 
 

@@ -246,6 +246,31 @@ pipeline {
 
 
 
+![Screenshot from 2023-12-18 17-24-49](https://github.com/ekomoku/ekom-pbl/assets/66005935/04f3e16b-931c-493e-9789-171cc37dc53f)
+
+
+
+
+Go into the ansible-config_mgt in the jenkins UI, and click on "configure" to configure the jenkins.
+
+
+
+
+![Screenshot from 2023-12-18 17-27-40](https://github.com/ekomoku/ekom-pbl/assets/66005935/843774d3-4059-4896-a3bc-d6a5158001bd)
+
+
+
+
+Click on Build Configuration and edit the script path to deploy/Jenkinsfile
+
+
+
+Back to the pipeline again and click "Build now"
+
+This will trigger a build and you will be able to see the effect of our basic Jenkinsfile configuration by going through the console output of the build.
+
+
+
 
 
 

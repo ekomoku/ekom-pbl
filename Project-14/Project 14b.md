@@ -143,3 +143,70 @@ Click on the Blue Ocean to create a new pipeline
 ![Screenshot from 2023-12-18 15-02-55](https://github.com/ekomoku/ekom-pbl/assets/66005935/4388a41f-7d77-4e7f-9430-46b63a557a54)
 
 
+
+Select Github
+
+
+
+![Screenshot from 2023-12-18 15-07-15](https://github.com/ekomoku/ekom-pbl/assets/66005935/690a2206-fc38-43a5-83b1-1957926a47f4)
+
+
+
+
+![Screenshot from 2023-12-18 15-08-10](https://github.com/ekomoku/ekom-pbl/assets/66005935/f1b66297-0860-4eb3-94c7-dd15e2935009)
+
+
+
+
+Connect jenkins with Github and Login to GitHub & Generate an Access token
+
+
+
+
+![Screenshot from 2023-12-18 15-10-12](https://github.com/ekomoku/ekom-pbl/assets/66005935/87705285-dd69-401e-a24c-0fc2ad6a7441)
+
+
+
+
+![Screenshot from 2023-12-18 15-11-25](https://github.com/ekomoku/ekom-pbl/assets/66005935/78d30672-6277-48ea-a4ae-cfe2f055b225)
+
+
+
+
+![Screenshot from 2023-12-18 15-13-46](https://github.com/ekomoku/ekom-pbl/assets/66005935/87d8b816-b444-4c3c-847a-67aeba6b7b70)
+
+
+
+
+Generate access token, Copy Access Token and paste in the space provided to connect to github.
+
+Then select the ansible-config-mgt-dybran repository and click on create pipeline.
+
+
+
+
+![Screenshot from 2023-12-18 15-17-22](https://github.com/ekomoku/ekom-pbl/assets/66005935/e3e24769-990a-4b55-9010-c13d1a1a2987)
+
+
+
+
+
+![Screenshot from 2023-12-18 15-19-23](https://github.com/ekomoku/ekom-pbl/assets/66005935/a4ca3596-fc45-41b3-bf56-a7243dd8d733)
+
+
+
+
+At this point we do not have a Jenkinsfile in the ansible-config-mgt-dybran repository.
+
+Click on "Administration" to exit the Blue Ocean console.
+
+Here is our newly created pipeline. It takes the name of your GitHub repository
+
+
+
+
+
+![Screenshot from 2023-12-18 15-21-21](https://github.com/ekomoku/ekom-pbl/assets/66005935/11275e22-7a65-49e5-816c-a14e3e220bf1)
+
+
+

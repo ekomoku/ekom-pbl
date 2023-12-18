@@ -100,11 +100,46 @@ $ ./jenkins-install.sh
 
 
 
+![Screenshot from 2023-12-18 14-27-14](https://github.com/ekomoku/ekom-pbl/assets/66005935/80ef39dd-ec9e-48ff-a16f-33471142dede)
 
 
 
 
+![Screenshot from 2023-12-18 14-32-31](https://github.com/ekomoku/ekom-pbl/assets/66005935/0e836fe6-9ec9-490c-bd26-4d38aeaf431f)
 
 
+
+
+![Screenshot from 2023-12-18 14-35-59](https://github.com/ekomoku/ekom-pbl/assets/66005935/ecf96106-c1de-4979-b710-0999437b5b47)
+
+
+
+![Screenshot from 2023-12-18 14-40-08](https://github.com/ekomoku/ekom-pbl/assets/66005935/d273d293-e98a-46f8-bff8-9b3c9ee9efe6)
+
+
+
+
+![Screenshot from 2023-12-18 14-48-56](https://github.com/ekomoku/ekom-pbl/assets/66005935/f295fc58-ed49-40d1-8b3c-8231b18ad39d)
+
+
+
+![Screenshot from 2023-12-18 14-49-30](https://github.com/ekomoku/ekom-pbl/assets/66005935/aeae41fe-2336-498d-a398-0bdf3fc4b399)
+
+
+
+Blue Ocean now shows up on the Dashboard
+
+
+
+![Screenshot from 2023-12-18 14-51-16](https://github.com/ekomoku/ekom-pbl/assets/66005935/a8e15253-0d55-446c-8ef5-ab0b67870bb1)
+
+
+
+
+Click on the Blue Ocean to create a new pipeline
+
+
+
+![Screenshot from 2023-12-18 15-02-55](https://github.com/ekomoku/ekom-pbl/assets/66005935/4388a41f-7d77-4e7f-9430-46b63a557a54)
 
 

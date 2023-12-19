@@ -273,6 +273,161 @@ This will trigger a build and you will be able to see the effect of our basic Je
 
 
 
+![Screenshot from 2023-12-19 15-05-29](https://github.com/ekomoku/ekom-pbl/assets/66005935/ad183ae4-15b7-4258-bc9b-d235769b42e8)
 
+
+
+
+
+![Screenshot from 2023-12-19 15-06-13](https://github.com/ekomoku/ekom-pbl/assets/66005935/f46c7489-5388-48c6-9517-3ed84c3d0378)
+
+
+
+
+![Screenshot from 2023-12-19 15-09-50](https://github.com/ekomoku/ekom-pbl/assets/66005935/ec01e6bf-3b66-4719-8587-af259fdc5fbb)
+
+
+
+
+Click on Blue Ocean and seen the build
+
+
+
+![Screenshot from 2023-12-19 15-10-31](https://github.com/ekomoku/ekom-pbl/assets/66005935/6671546f-593a-404c-82f1-67760650ad5d)
+
+
+
+This pipeline has multibranchs. This means, if there were more than one branch in GitHub, Jenkins would have scanned the repository to discover them all and we would have been able to trigger a build for each branch.
+
+
+To see this in action, we will create a new git branch and name it feature/jenkinspipeline-stages
+
+$ git checkout -b feature/jenkinspipeline-stages
+
+
+Currently we only have the Build stage. Let us add other stages. Paste the code snippet below.
+
+
+
+
+~~~
+pipeline {
+    agent any
+
+  stages {
+
+    stage('initial cleanup') {
+      steps {
+       dir("${WORKSPACE}") {
+	    deleteDir()
+
+	   }
+      }
+    }
+    stage('Build') {
+      steps {
+        script {
+          sh 'echo "Building Stage"'
+        }
+      }
+    }
+
+    stage('Test') {
+      steps {
+        script {
+          sh 'echo "Testing Stage"'
+        }
+      }
+    }
+    
+   stage('packaging') {
+      steps {
+        script {
+          sh 'echo "Packaging Stage"'
+        }
+      }
+    }
+
+   stage('Deploy') {
+      steps {
+        script {
+          sh 'echo "Deploying Stage"'
+        }
+      }
+    }
+
+  stage('Deploy') {
+      steps {
+        script {
+          sh 'echo "Deploying Stage"'
+        }
+      }
+    }
+  stage('Clean Up') {
+      steps {
+        cleanWs()
+      }
+    }
+  }
+}
+~~~
+
+
+
+
+![Screenshot from 2023-12-19 15-12-31](https://github.com/ekomoku/ekom-pbl/assets/66005935/f8a20e36-222a-45fd-a6f8-4c8562a65caf)
+
+
+
+
+Push the new changes to GitHub.
+
+$ git status
+
+$ git add .
+
+$ git commit -m "<commit-message>"
+
+$  git push origin feature/jenkinspipeline-stages
+
+
+
+
+![Screenshot from 2023-12-19 15-13-27](https://github.com/ekomoku/ekom-pbl/assets/66005935/4eb917f9-7a32-49db-bf9a-7ca6f48ce2e2)
+
+
+
+To make your new branch show up in Jenkins, we need to tell Jenkins to scan the repository.
+
+
+
+
+![Screenshot from 2023-12-19 15-14-15](https://github.com/ekomoku/ekom-pbl/assets/66005935/198e47d2-6059-4ff5-94a3-2f4544eb93ee)
+
+
+
+
+
+![Screenshot from 2023-12-19 15-14-52](https://github.com/ekomoku/ekom-pbl/assets/66005935/e96ad043-0186-463d-baa8-7db3f029c6f8)
+
+
+
+
+![Screenshot from 2023-12-19 15-15-16](https://github.com/ekomoku/ekom-pbl/assets/66005935/19eeedc4-827e-4ad9-93ca-823050882f0a)
+
+
+
+
+Click on the ansible-config-mgt job and then click on "Administration" button to go back to the jenkins UI.
+
+
+
+#### RUNNING ANSIBLE PLAYBOOK FROM JENKINS
+
+
+Now that we have a broad overview of a typical Jenkins pipeline. Let us get the actual Ansible deployment to work.
+
+
+We will be setting up database and nginx on two different instances using ansible playbook on jenkins UI.
 
 

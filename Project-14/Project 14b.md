@@ -395,3 +395,5 @@ Now that we have a broad overview of a typical Jenkins pipeline. Let us get the 
 We will be setting up database and nginx on two different instances using ansible playbook on jenkins UI.
 
 
+
+

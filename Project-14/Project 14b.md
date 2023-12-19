@@ -310,20 +310,12 @@ Currently we only have the Build stage. Let us add other stages. Paste the code 
 
 
 
+
 ~~~
-pipeline {
+   pipeline {
     agent any
 
   stages {
-
-    stage('initial cleanup') {
-      steps {
-       dir("${WORKSPACE}") {
-	    deleteDir()
-
-	   }
-      }
-    }
     stage('Build') {
       steps {
         script {
@@ -339,38 +331,10 @@ pipeline {
         }
       }
     }
-    
-   stage('packaging') {
-      steps {
-        script {
-          sh 'echo "Packaging Stage"'
-        }
-      }
     }
-
-   stage('Deploy') {
-      steps {
-        script {
-          sh 'echo "Deploying Stage"'
-        }
-      }
-    }
-
-  stage('Deploy') {
-      steps {
-        script {
-          sh 'echo "Deploying Stage"'
-        }
-      }
-    }
-  stage('Clean Up') {
-      steps {
-        cleanWs()
-      }
-    }
-  }
 }
 ~~~
+
 
 
 

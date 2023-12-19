@@ -66,13 +66,13 @@ sudo yum install wget unzip -y
 echo "#### Download Repo from URL ####"
 sudo wget -O /etc/yum.repos.d/jenkins.repo \
     https://pkg.jenkins.io/redhat-stable/jenkins.repo
-sudo rpm --import https://pkg.jenkins.io/redhat-stable/jenkins.io.key
+sudo rpm --import https://pkg.jenkins.io/redhat-stable/jenkins.io-2023.key
 
 echo "#### Upgrading Repo ####"
 sudo yum upgrade -y
 
 echo "#### Installing Java 11 and Jenkins ####"
-sudo yum install java-11-openjdk -y
+sudo yum install fontconfig java-17-openjdk
 sudo yum install jenkins -y
 
 echo "#### Reload Deamon ####"
@@ -83,6 +83,8 @@ sudo systemctl start jenkins
 sudo systemctl enable jenkins
 ~~~
 
+
+Note: Always visit jenkins website for offical documentation on guides to install jenkins e.g https://www.jenkins.io/doc/book/installing/linux/#red-hat-centos
 
 
 ![Screenshot from 2023-12-18 10-20-51](https://github.com/ekomoku/ekom-pbl/assets/66005935/eb75cddc-3e1b-4293-aa7d-5ac20caa1e7a)

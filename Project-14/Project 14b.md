@@ -395,5 +395,14 @@ Now that we have a broad overview of a typical Jenkins pipeline. Let us get the 
 We will be setting up database and nginx on two different instances using ansible playbook on jenkins UI.
 
 
+Spin up two AWS instances (Ubuntu database and RHEL Nginx)
+
+
+
+To install Ansible on Jenkins, We also need to install python3 as it is a dependency for ansible to be able to successfully run a database role.
+
+$ sudo yum install ansible -y
+
+
 
 

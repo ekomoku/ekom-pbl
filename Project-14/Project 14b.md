@@ -1,4 +1,4 @@
-
+![image](https://github.com/ekomoku/ekom-pbl/assets/66005935/415a6cc1-a74a-48b5-895e-d975d1cd1559)
 #### CONFIGURING THE JENKINS SERVER FOR DEPLOYMENT
 
 Provision a RHEL 8 instance on AWS and name it jenkins-ansible
@@ -395,14 +395,66 @@ Now that we have a broad overview of a typical Jenkins pipeline. Let us get the 
 We will be setting up database and nginx on two different instances using ansible playbook on jenkins UI.
 
 
+
+
+
 Spin up two AWS instances (Ubuntu database and RHEL Nginx)
+
+
+
 
 
 
 To install Ansible on Jenkins, We also need to install python3 as it is a dependency for ansible to be able to successfully run a database role.
 
-$ sudo yum install ansible -y
+$ sudo dnf install -y ansible-core
+$ ansible --version
 
 
+
+
+![Screenshot from 2023-12-20 12-04-55](https://github.com/ekomoku/ekom-pbl/assets/66005935/d0414752-e72e-4f69-be05-5e2fe6a7c102)
+
+
+
+
+
+Search for the Python3 for mysql
+
+$ sudo yum search python3 | grep -i mysql
+
+
+
+
+
+![Screenshot from 2023-12-20 12-26-47](https://github.com/ekomoku/ekom-pbl/assets/66005935/2d809d8a-18ab-428d-a59b-619d10fe0d60)
+
+
+
+
+
+then install
+
+$ sudo yum install python3-PyMySQL.noarch
+
+
+
+
+
+
+![Screenshot from 2023-12-20 12-32-15](https://github.com/ekomoku/ekom-pbl/assets/66005935/fb8e7e4a-4688-4fe6-8241-b16a23d3afd4)
+
+
+
+
+
+
+![Screenshot from 2023-12-20 12-33-30](https://github.com/ekomoku/ekom-pbl/assets/66005935/c29f2db8-e40b-4637-8832-8d6604ffb350)
+
+
+
+
+
+Installing Ansible plugin in Jenkins UI
 
 

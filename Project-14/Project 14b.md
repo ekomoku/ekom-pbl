@@ -458,3 +458,55 @@ $ sudo yum install python3-PyMySQL.noarch
 Installing Ansible plugin in Jenkins UI
 
 
+
+
+![Screenshot from 2023-12-20 12-37-53](https://github.com/ekomoku/ekom-pbl/assets/66005935/15e4961e-743b-4731-957b-2c7ec9911e39)
+
+
+
+
+
+Then go to "global tool configuration" under "manage jenkins > Tools" to set up ansible plugin to work with jenkins
+
+
+
+
+
+
+![Screenshot from 2023-12-20 12-45-38](https://github.com/ekomoku/ekom-pbl/assets/66005935/b3da4fa0-7173-4638-b710-0d5f077c4ec7)
+
+
+
+
+To get the path to ansible
+
+$ which anible
+
+
+
+
+![Screenshot from 2023-12-20 12-48-56](https://github.com/ekomoku/ekom-pbl/assets/66005935/5f1c05c8-29a2-4fde-b48f-dda2942355ac)
+
+
+
+
+
+![Screenshot from 2023-12-20 12-49-29](https://github.com/ekomoku/ekom-pbl/assets/66005935/a9299601-9868-467f-8cb3-17cb9561ce5e)
+
+
+
+
+
+
+Creating Jenkinsfile to run the ansible playbook on jenkins.
+
+
+
+Jenkins needs to export the ANSIBLE_CONFIG environment variable. You can put the ansible.cfg file alongside Jenkinsfile in the deploy directory. This way, anyone can easily identify that everything in there relates to deployment.
+
+
+
+
+We need to set the credentials for ansible to be able to work with jenkins smoothly. To do this we go to manage credentials under manage jenkins.
+
+

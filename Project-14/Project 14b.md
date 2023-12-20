@@ -502,11 +502,213 @@ Creating Jenkinsfile to run the ansible playbook on jenkins.
 
 
 
+
 Jenkins needs to export the ANSIBLE_CONFIG environment variable. You can put the ansible.cfg file alongside Jenkinsfile in the deploy directory. This way, anyone can easily identify that everything in there relates to deployment.
 
 
 
 
-We need to set the credentials for ansible to be able to work with jenkins smoothly. To do this we go to manage credentials under manage jenkins.
+
+
+![Screenshot from 2023-12-20 13-21-17](https://github.com/ekomoku/ekom-pbl/assets/66005935/2a94fa28-036f-48cc-a747-2ce9e62cb060)
+
+
+
+
+
+
+We need to set the credentials for ansible to be able to work with jenkins smoothly. To do this we go to manage credentials under manage jenkins > Credentials > global.
+
+
+
+
+
+
+![Screenshot from 2023-12-20 13-23-09](https://github.com/ekomoku/ekom-pbl/assets/66005935/f3281473-f593-4ebe-91f3-8ea102e734c9)
+
+
+
+
+
+
+![Screenshot from 2023-12-20 13-24-55](https://github.com/ekomoku/ekom-pbl/assets/66005935/0d47439c-6d54-4f72-84cc-f6305e52cb85)
+
+
+
+
+Click on +Add Credentials
+
+
+
+
+
+
+![Screenshot from 2023-12-20 13-26-16](https://github.com/ekomoku/ekom-pbl/assets/66005935/cf8ed9ed-5df8-4ba6-986f-9c7fe141e902)
+
+
+
+
+
+
+![Screenshot from 2023-12-20 13-29-00](https://github.com/ekomoku/ekom-pbl/assets/66005935/32a751dc-210b-40a3-8850-8da48a4741a9)
+
+
+
+
+
+
+
+We copy the content of our private key into the section "password".
+
+
+
+
+
+
+![Screenshot from 2023-12-20 13-41-23](https://github.com/ekomoku/ekom-pbl/assets/66005935/9fe46502-0872-4a85-90dd-288d383a02f6)
+
+
+
+
+
+Using the Pipeline Syntax tool in Ansible, generate the syntax to create environment variables to set.
+
+
+
+
+
+
+![Screenshot from 2023-12-20 13-44-16](https://github.com/ekomoku/ekom-pbl/assets/66005935/8fea6c08-0eb2-45e7-8901-6bdd71eb1a85)
+
+
+
+
+
+Click on "Pipeline Syntax", then under 'Steps" click the dropdown and select"ansibleplaybook:invoke an ansibleplaybook" and complete the field as shown;
+
+
+
+
+
+Then click' Generate Pipeline Script
+
+
+
+
+
+
+![Screenshot from 2023-12-20 14-19-59](https://github.com/ekomoku/ekom-pbl/assets/66005935/79675ce1-3641-4213-bc12-af30c2f34f71)
+
+
+
+
+
+
+![Screenshot from 2023-12-20 14-21-25](https://github.com/ekomoku/ekom-pbl/assets/66005935/34ad5874-bb0a-4f2c-8ea3-b303168e3235)
+
+
+
+
+
+
+![Screenshot from 2023-12-20 14-21-45](https://github.com/ekomoku/ekom-pbl/assets/66005935/000552e9-d632-4cb5-8232-6fd94b72f66a)
+
+
+
+
+
+The generated script is shown below. Copy it and add to the Jenkinsfile in the "Run Ansible Playbook" stage
+
+
+
+
+
+![Screenshot from 2023-12-20 14-23-20](https://github.com/ekomoku/ekom-pbl/assets/66005935/1667024e-1b12-4f19-aa34-7794ea570f42)
+
+
+
+On a new branch, update Jenkinsfile with the following
+
+
+
+
+
+~~~
+  pipeline {
+
+   agent any
+
+   environment {
+    ANSIBLE_CONFIG='${WORKSPACE}/deploy/ansible.cfg'
+   }
+
+  parameters {
+      string(name: 'inventory', defaultValue: 'dev',  description: 'This is the inventory file for the environment to deploy configuration')
+  }
+
+   stages {
+
+    stage('Initial Clean Up') {
+      steps {
+        dir('${WORKSPACE}') {
+         deleteDir()
+        }
+
+      }
+    }
+
+
+    stage('Checkout SCM') {
+      steps {
+        git branch: 'main', url: 'https://github.com/ekomoku/ansible-config-mgt-new.git'
+      }
+    }
+
+    stage('Setting Roles Path in the Ansible.cfg File') {
+
+      steps {
+        sh 'echo ${WORKSPACE}'
+        sh 'sed -i "3 a roles_path=${WORKSPACE}/roles" ${WORKSPACE}/deploy/ansible.cfg'
+      }
+    }
+
+    stage('Run Ansible Playbook') {
+
+      steps {
+        ansiblePlaybook colorized: true, credentialsId: 'private-key', disableHostKeyChecking: true, installation: 'ansible', inventory: 'inventory/${inventory}', playbook: 'playbooks/site.yml'
+
+      }
+    }
+
+    stage('Clean Up') {
+      steps {
+         cleanWs(cleanWhenAborted: true, cleanWhenNotBuilt: true, cleanWhenUnstable: true, cleanWhenFailure: true)
+      }
+
+    }
+     
+   }
+}
+~~~
+
+
+
+
+
+Then in the inventory/dev file, we update the IP address for our database and nginx.
+
+
+
+
+~~~
+nginx ansible_host=<Private-IP-address> ansible_ssh_user=<ec2-user>
+db ansible_host=<Private-IP-address> ansible_ssh_user=<ubuntu>
+~~~
+
+
+
+
+
+
 
 

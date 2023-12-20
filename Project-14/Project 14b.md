@@ -708,7 +708,24 @@ db ansible_host=<Private-IP-address> ansible_ssh_user=<ubuntu>
 
 
 
+![Screenshot from 2023-12-20 14-49-29](https://github.com/ekomoku/ekom-pbl/assets/66005935/db8e6c35-360b-4765-b10c-df3bdc87bd1d)
 
+
+
+
+
+Create mysql and nginx roles
+
+
+
+
+
+![Screenshot from 2023-12-20 15-22-29](https://github.com/ekomoku/ekom-pbl/assets/66005935/4d763041-ba89-4ae8-a841-0984c64359b1)
+
+
+
+
+We set up roles for the database and nginx. The database roles will create a database - tooling and a database user - webaccess. We will go ahead and edit the _defaults/main.yml file in the mysql role
 
 
 

@@ -56,12 +56,6 @@ There are few requirements that must be met before you begin:
 
 
 
-![Screenshot from 2023-12-25 13-20-09](https://github.com/ekomoku/ekom-pbl/assets/66005935/f2893cde-305c-40bc-adc3-9aa3e8a3b524)
-
-
-
-
-
 #### Set Up a Virtual Private Network (VPC)
 
 Always make reference to the architectural diagram and ensure that your configuration is aligned with it.

@@ -45,6 +45,17 @@ There are few requirements that must be met before you begin:
 
 
 
+![Screenshot from 2023-12-25 13-27-09](https://github.com/ekomoku/ekom-pbl/assets/66005935/03eecf7d-e910-4dda-aec3-90deb58a47e8)
+![Screenshot from 2023-12-25 13-26-38](https://github.com/ekomoku/ekom-pbl/assets/66005935/7acb9eae-e206-4d64-a71a-02c7e226ed61)
+
+
+
+
+
+
+
+
+
 ![Screenshot from 2023-12-25 13-20-09](https://github.com/ekomoku/ekom-pbl/assets/66005935/f2893cde-305c-40bc-adc3-9aa3e8a3b524)
 
 

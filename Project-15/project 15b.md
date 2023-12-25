@@ -55,7 +55,6 @@ There are few requirements that must be met before you begin:
 
 
 
-
 #### Set Up a Virtual Private Network (VPC)
 
 Always make reference to the architectural diagram and ensure that your configuration is aligned with it.
